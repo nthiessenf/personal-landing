@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Hero } from "@/components/hero";
-import { BentoGrid, BentoCard } from "@/components/bento-grid";
+import { BentoCard } from "@/components/bento-grid";
 import { ProjectCard } from "@/components/project-card";
 import { ContentCard } from "@/components/content-card";
 import { InterestCard } from "@/components/interest-card";
@@ -16,7 +16,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-      className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] tracking-[-0.02em] mb-8"
+      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1d1d1f] tracking-[-0.02em] mb-6"
     >
       {children}
     </motion.h2>
@@ -34,38 +34,39 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col">
       <main className="relative z-10 flex-1">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8">
           {/* Hero Section */}
           <Hero />
 
           {/* What I'm Building Section */}
-          <section className="py-12">
+          <section className="py-10">
             <SectionTitle>What I'm Building.</SectionTitle>
-            <BentoCard delay={0.1} colSpan={2} className="w-full">
+            <BentoCard delay={0.1} className="w-full">
               <ProjectCard
                 title="Mobile App"
                 description="A beautifully crafted mobile experience that puts users first. Built with React Native and focused on performance."
                 link="https://example.com"
                 icon={<Smartphone className="w-full h-full" />}
-                image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop"
+                image="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=600&fit=crop"
               />
             </BentoCard>
           </section>
 
           {/* What I'm Sharing Section */}
-          <section className="py-12">
+          <section className="py-10">
             <SectionTitle>What I'm Sharing.</SectionTitle>
-            <BentoCard delay={0.1} colSpan={2} className="w-full">
+            <BentoCard delay={0.1} className="w-full">
               <ContentCard
                 title="Weekly Insights"
                 description="Every Sunday, I share thoughts on building, design, and life. Available as a newsletter or podcast on your favorite platform."
                 platforms={platforms}
+                image="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=600&h=600&fit=crop"
               />
             </BentoCard>
           </section>
 
           {/* What I'm Into Section */}
-          <section className="py-12 pb-24">
+          <section className="py-10 pb-20">
             <SectionTitle>What I'm Into.</SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <BentoCard delay={0.1}>
