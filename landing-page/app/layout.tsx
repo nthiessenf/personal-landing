@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Your Name - Portfolio",
-  description: "Builder, creator, and storyteller crafting experiences",
+  description: "Builder, creator, and storyteller crafting experiences at the intersection of design and technology.",
 };
 
 export default function RootLayout({
@@ -16,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <div className="background-gradient" />
         {children}
       </body>
