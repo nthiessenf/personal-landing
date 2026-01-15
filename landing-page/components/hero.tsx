@@ -4,48 +4,49 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-          {/* Hero Content - Left Side */}
+    <section className="relative flex items-center justify-center py-24 lg:py-32 overflow-hidden">
+      <div className="max-w-6xl mx-auto w-full px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             className="flex-1 text-center lg:text-left order-2 lg:order-1"
           >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-7xl md:text-8xl font-bold tracking-[-0.03em] bg-gradient-to-br from-foreground to-muted bg-clip-text text-transparent leading-[1.1] mb-6"
-            >
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.03em] bg-gradient-to-br from-[#1d1d1f] to-[#6e6e73] bg-clip-text text-transparent leading-[1.05] mb-5">
               Your Name
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="text-xl md:text-2xl text-muted font-normal max-w-2xl mx-auto lg:mx-0"
-            >
-              Building beautiful experiences with modern web technologies
-            </motion.p>
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-[#6e6e73] font-normal max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Builder, creator, and storyteller crafting experiences at the intersection of design and technology.
+            </p>
           </motion.div>
 
-          {/* Floating Headshot - Right Side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="flex-shrink-0 order-1 lg:order-2"
           >
-            <div className="relative w-[200px] h-[200px] mx-auto lg:mx-0">
-              {/* Glow effect wrapper */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300 via-purple-300 to-pink-200 blur-xl opacity-40 animate-pulse-glow" />
+            <div className="relative w-[180px] h-[180px] sm:w-[200px] sm:h-[200px]">
+              <div 
+                className="absolute inset-[-6px] rounded-full animate-pulse-glow"
+                style={{
+                  background: "linear-gradient(135deg, #93c5fd, #c4b5fd, #fbcfe8)",
+                  filter: "blur(28px)",
+                  opacity: 0.35,
+                }}
+              />
               
-              {/* Main circle */}
-              <div className="relative w-[200px] h-[200px] rounded-full bg-gradient-to-br from-blue-300 via-purple-300 to-pink-200 flex items-center justify-center text-foreground font-semibold text-sm shadow-[0_20px_40px_rgba(147,197,253,0.25),0_8px_16px_rgba(196,181,253,0.15)] animate-float">
-                <span className="text-center px-4 z-10">YOUR PHOTO</span>
+              <div 
+                className="relative w-full h-full rounded-full flex items-center justify-center animate-float"
+                style={{
+                  background: "linear-gradient(135deg, #93c5fd 0%, #c4b5fd 50%, #fbcfe8 100%)",
+                  boxShadow: "0 20px 50px rgba(147, 197, 253, 0.25), 0 10px 20px rgba(196, 181, 253, 0.15)",
+                }}
+              >
+                <span className="text-white/85 text-xs sm:text-sm font-semibold tracking-wider">
+                  YOUR PHOTO
+                </span>
               </div>
             </div>
           </motion.div>
@@ -54,4 +55,3 @@ export function Hero() {
     </section>
   );
 }
-
