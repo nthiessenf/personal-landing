@@ -7,7 +7,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ContentCard } from "@/components/content-card";
 import { InterestCard } from "@/components/interest-card";
 import { Footer } from "@/components/footer";
-import { Smartphone, BookOpen, Activity, Mail, Headphones, Youtube, Podcast } from "lucide-react";
+import { Dumbbell, BookOpen, Activity, Mail, Headphones, Youtube, Podcast } from "lucide-react";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -25,10 +25,10 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   const platforms = [
-    { name: "Subscribe", href: "https://example.com/newsletter", icon: <Mail className="w-4 h-4" /> },
-    { name: "Spotify", href: "https://spotify.com", icon: <Headphones className="w-4 h-4" /> },
-    { name: "YouTube", href: "https://youtube.com", icon: <Youtube className="w-4 h-4" /> },
-    { name: "Apple", href: "https://podcasts.apple.com", icon: <Podcast className="w-4 h-4" /> },
+    { name: "Subscribe", href: "https://www.gist-newsletter.com", icon: <Mail className="w-4 h-4" /> },
+    { name: "Spotify", href: "https://open.spotify.com/show/0r6kYx2AC8yYwwygyi0R2G?si=mIsLYI5OQIW1qoIs27gGpA", icon: <Headphones className="w-4 h-4" /> },
+    { name: "YouTube", href: "https://youtube.com/@gist-tech-newsletter?si=QpeEWIpQRz-SMBrH", icon: <Youtube className="w-4 h-4" /> },
+    { name: "Apple", href: "https://podcasts.apple.com/us/podcast/gist/id1869418127", icon: <Podcast className="w-4 h-4" /> },
   ];
 
   return (
@@ -43,11 +43,10 @@ export default function Home() {
             <SectionTitle>What I'm Building.</SectionTitle>
             <BentoCard delay={0.1} className="w-full">
               <ProjectCard
-                title="Mobile App"
-                description="A beautifully crafted mobile experience that puts users first. Built with React Native and focused on performance."
-                link="https://example.com"
-                icon={<Smartphone className="w-full h-full" />}
-                image="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=600&fit=crop"
+                title="LiftTrack"
+                description="An iOS local-first workout tracking app built with React Native. Features weekly goals, progress monitoring, and routine management to help you stay consistent."
+                icon={<Dumbbell className="w-full h-full" />}
+                image="/images/lifttrack-screenshot.png"
               />
             </BentoCard>
           </section>
@@ -57,8 +56,8 @@ export default function Home() {
             <SectionTitle>What I'm Sharing.</SectionTitle>
             <BentoCard delay={0.1} className="w-full">
               <ContentCard
-                title="Weekly Insights"
-                description="Every Sunday, I share thoughts on building, design, and life. Available as a newsletter or podcast on your favorite platform."
+                title="Gist | Weekly Newsletter"
+                description="Every week, one new trend or concept in frontier tech explained clearly—AI, chips, the forces reshaping the future. No jargon. No hype. So you're never the one nodding along."
                 platforms={platforms}
                 image="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=600&h=600&fit=crop"
               />
@@ -73,9 +72,9 @@ export default function Home() {
                 <InterestCard
                   title="Currently Reading"
                   items={[
-                    "The Design of Everyday Things",
-                    "Atomic Habits",
-                    "Range by David Epstein",
+                    "The Will of The Many — James Islington",
+                    "The Origins of Efficiency — Brian Potter",
+                    "Lenny's Newsletter — Lenny Rachitsky",
                   ]}
                   icon={<BookOpen className="w-full h-full" />}
                 />
@@ -85,9 +84,9 @@ export default function Home() {
                 <InterestCard
                   title="Active Life"
                   items={[
-                    "Running 5K three times a week",
-                    "Tennis on weekends",
-                    "Cycling through the city",
+                    "Jiu Jitsu — training for my next competition",
+                    "Surfing — planning my next trip to Indonesia",
+                    "Gym — staying young, one rep at a time",
                   ]}
                   icon={<Activity className="w-full h-full" />}
                 />
