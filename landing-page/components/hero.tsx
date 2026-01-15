@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative flex items-center py-16 lg:py-24 overflow-visible">
       <div className="w-full">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          {/* Floating Headshot - Left Side */}
+          {/* Headshot - Left Side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -15,6 +15,7 @@ export function Hero() {
             className="flex-shrink-0 p-4"
           >
             <div className="relative w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] lg:w-[180px] lg:h-[180px]">
+              {/* Ambient glow behind photo */}
               <div 
                 className="absolute inset-[-8px] rounded-full animate-pulse-glow"
                 style={{
@@ -24,16 +25,18 @@ export function Hero() {
                 }}
               />
               
+              {/* Photo */}
               <div 
-                className="relative w-full h-full rounded-full flex items-center justify-center animate-float"
+                className="relative w-full h-full rounded-full overflow-hidden animate-float"
                 style={{
-                  background: "linear-gradient(135deg, #93c5fd 0%, #c4b5fd 50%, #fbcfe8 100%)",
                   boxShadow: "0 20px 50px rgba(147, 197, 253, 0.25), 0 10px 20px rgba(196, 181, 253, 0.15)",
                 }}
               >
-                <span className="text-white/85 text-xs sm:text-sm font-semibold tracking-wider">
-                  YOUR PHOTO
-                </span>
+                <img 
+                  src="/images/headshot.png" 
+                  alt="Nikolas Thiessen"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>
