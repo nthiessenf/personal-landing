@@ -23,10 +23,9 @@ export function ProjectCard({
       {/* Phone Mockup with Screenshot */}
       {image && (
         <div 
-          className="flex-shrink-0 w-full sm:w-44 md:w-48 lg:w-52 rounded-2xl overflow-hidden flex items-center justify-center"
+          className="flex-shrink-0 w-[180px] h-[180px] rounded-2xl overflow-hidden flex items-center justify-center mx-auto sm:mx-0"
           style={{
             background: "linear-gradient(145deg, #1a1a1a 0%, #0a2520 50%, #0d3d35 100%)",
-            aspectRatio: "1 / 1",
           }}
         >
           <div className="relative w-[70%] h-[90%] rounded-[20px] overflow-hidden border-[3px] border-[#2a2a2a] shadow-2xl">
