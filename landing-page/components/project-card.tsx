@@ -22,7 +22,7 @@ export function ProjectCard({
     <div className="relative h-full flex flex-col sm:flex-row gap-6">
       {/* Square Image - Left Side */}
       {image && (
-        <div className="flex-shrink-0 w-full sm:w-48 md:w-56 lg:w-64 aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#93c5fd]/10 via-[#c4b5fd]/10 to-[#fbcfe8]/10 border border-[#93c5fd]/15">
+        <div className="flex-shrink-0 w-full sm:w-40 md:w-44 lg:w-52 aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#93c5fd]/10 via-[#c4b5fd]/10 to-[#fbcfe8]/10 border border-[#93c5fd]/15">
           <img
             src={image}
             alt={title}
