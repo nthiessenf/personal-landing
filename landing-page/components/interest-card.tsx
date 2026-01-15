@@ -1,60 +1,57 @@
 "use client";
 
 import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
 interface InterestCardProps {
   title: string;
   items: string[];
   icon?: ReactNode;
+  label?: string;
 }
 
-export function InterestCard({ title, items, icon }: InterestCardProps) {
+export function InterestCard({ title, items, icon, label }: InterestCardProps) {
   return (
-    <div className="h-full flex flex-col">
-      {/* Card Header */}
-      <div className="flex items-center gap-3 mb-4">
+    <div className="relative h-full flex flex-col">
+      {label && (
+        <span className="absolute top-0 right-0 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-[11px] text-[#6e6e73] uppercase tracking-wide font-semibold border border-black/[0.04]">
+          {label}
+        </span>
+      )}
+
+      <div className="flex items-center gap-3 mb-5">
         {icon && (
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-300 via-purple-300 to-pink-200 flex items-center justify-center text-foreground backdrop-blur-sm shadow-sm">
-            <div className="w-6 h-6 flex items-center justify-center">
+          <div 
+            className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm"
+            style={{
+              background: "linear-gradient(135deg, rgba(147, 197, 253, 0.5), rgba(196, 181, 253, 0.4))",
+            }}
+          >
+            <div className="w-[18px] h-[18px] text-white">
               {icon}
             </div>
           </div>
         )}
-        <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+        <h3 className="text-xl font-semibold text-[#1d1d1f] tracking-[-0.01em]">
+          {title}
+        </h3>
       </div>
 
-      {/* List of items */}
-      <ul className="flex flex-col gap-2 flex-1">
+      <ul className="flex flex-col gap-1">
         {items.map((item, index) => (
           <li
             key={index}
-            className={cn(
-              "group relative pl-4 py-2 rounded-r-lg",
-              "border-l-2 border-muted/30",
-              "transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
-              "hover:translate-x-1 hover:border-muted/0",
-              "cursor-default"
-            )}
+            className="group relative pl-5 py-3 cursor-default transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:pl-7"
           >
-            {/* Gradient border on hover - replaces the gray border */}
-            <div
-              className={cn(
-                "absolute left-0 top-0 bottom-0 w-[2px]",
-                "bg-gradient-to-b from-blue-300 to-purple-300",
-                "opacity-0 group-hover:opacity-100",
-                "transition-opacity duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
-              )}
+            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-black/[0.08] transition-all duration-300" />
+            
+            <div 
+              className="absolute left-0 top-0 bottom-0 w-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 origin-bottom"
+              style={{
+                background: "linear-gradient(to bottom, #93c5fd, #c4b5fd)",
+              }}
             />
             
-            {/* Item text */}
-            <span
-              className={cn(
-                "relative text-sm text-muted",
-                "group-hover:text-foreground",
-                "transition-colors duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
-              )}
-            >
+            <span className="text-[15px] text-[#6e6e73] group-hover:text-[#1d1d1f] transition-colors duration-300">
               {item}
             </span>
           </li>
@@ -63,4 +60,3 @@ export function InterestCard({ title, items, icon }: InterestCardProps) {
     </div>
   );
 }
-
