@@ -41,37 +41,33 @@ export default function Home() {
           {/* What I'm Building Section */}
           <section className="py-12">
             <SectionTitle>What I'm Building.</SectionTitle>
-            <BentoGrid className="grid-cols-1">
-              <BentoCard delay={0.1}>
-                <ProjectCard
-                  title="Mobile App"
-                  description="A beautifully crafted mobile experience that puts users first. Built with React Native and focused on performance."
-                  link="https://example.com"
-                  icon={<Smartphone className="w-full h-full" />}
-                  image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop"
-                />
-              </BentoCard>
-            </BentoGrid>
+            <BentoCard delay={0.1} colSpan={2} className="w-full">
+              <ProjectCard
+                title="Mobile App"
+                description="A beautifully crafted mobile experience that puts users first. Built with React Native and focused on performance."
+                link="https://example.com"
+                icon={<Smartphone className="w-full h-full" />}
+                image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop"
+              />
+            </BentoCard>
           </section>
 
           {/* What I'm Sharing Section */}
           <section className="py-12">
             <SectionTitle>What I'm Sharing.</SectionTitle>
-            <BentoGrid className="grid-cols-1">
-              <BentoCard delay={0.1}>
-                <ContentCard
-                  title="Weekly Insights"
-                  description="Every Sunday, I share thoughts on building, design, and life. Available as a newsletter or podcast on your favorite platform."
-                  platforms={platforms}
-                />
-              </BentoCard>
-            </BentoGrid>
+            <BentoCard delay={0.1} colSpan={2} className="w-full">
+              <ContentCard
+                title="Weekly Insights"
+                description="Every Sunday, I share thoughts on building, design, and life. Available as a newsletter or podcast on your favorite platform."
+                platforms={platforms}
+              />
+            </BentoCard>
           </section>
 
           {/* What I'm Into Section */}
           <section className="py-12 pb-24">
             <SectionTitle>What I'm Into.</SectionTitle>
-            <BentoGrid className="grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <BentoCard delay={0.1}>
                 <InterestCard
                   title="Currently Reading"
@@ -95,7 +91,7 @@ export default function Home() {
                   icon={<Activity className="w-full h-full" />}
                 />
               </BentoCard>
-            </BentoGrid>
+            </div>
           </section>
         </div>
       </main>
