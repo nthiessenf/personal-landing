@@ -45,12 +45,14 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
             className="flex-1 text-center lg:text-left"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] bg-gradient-to-br from-[#1d1d1f] to-[#6e6e73] bg-clip-text text-transparent leading-[1.1] mb-3">
-              Your Name
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] bg-gradient-to-br from-[#1d1d1f] to-[#6e6e73] bg-clip-text text-transparent leading-[1.1] mb-4">
+              Nikolas Thiessen
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-[#6e6e73] font-normal max-w-md mx-auto lg:mx-0 leading-relaxed">
-              Builder, creator, and storyteller crafting experiences at the intersection of design and technology.
-            </p>
+            <div className="text-base sm:text-lg lg:text-xl text-[#6e6e73] font-normal max-w-md mx-auto lg:mx-0 leading-relaxed">
+              <p className="font-medium text-[#1d1d1f]">Product Engineer</p>
+              <p>Currently: Building products at Amazon</p>
+              <p>Learning: Latest trends in AI</p>
+            </div>
           </motion.div>
         </div>
       </div>
