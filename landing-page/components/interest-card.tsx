@@ -6,27 +6,21 @@ interface InterestCardProps {
   title: string;
   items: string[];
   icon?: ReactNode;
-  label?: string;
 }
 
-export function InterestCard({ title, items, icon, label }: InterestCardProps) {
+export function InterestCard({ title, items, icon }: InterestCardProps) {
   return (
-    <div className="relative h-full flex flex-col">
-      {label && (
-        <span className="absolute top-0 right-0 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-[11px] text-[#6e6e73] uppercase tracking-wide font-semibold border border-black/[0.04]">
-          {label}
-        </span>
-      )}
-
+    <div className="h-full flex flex-col">
+      {/* Card Header */}
       <div className="flex items-center gap-3 mb-5">
         {icon && (
           <div 
-            className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm"
+            className="w-10 h-10 rounded-xl flex items-center justify-center shadow-sm"
             style={{
               background: "linear-gradient(135deg, rgba(147, 197, 253, 0.5), rgba(196, 181, 253, 0.4))",
             }}
           >
-            <div className="w-[18px] h-[18px] text-white">
+            <div className="w-5 h-5 text-white">
               {icon}
             </div>
           </div>
@@ -36,14 +30,17 @@ export function InterestCard({ title, items, icon, label }: InterestCardProps) {
         </h3>
       </div>
 
+      {/* Styled list */}
       <ul className="flex flex-col gap-1">
         {items.map((item, index) => (
           <li
             key={index}
             className="group relative pl-5 py-3 cursor-default transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:pl-7"
           >
+            {/* Default border */}
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-black/[0.08] transition-all duration-300" />
             
+            {/* Gradient border on hover */}
             <div 
               className="absolute left-0 top-0 bottom-0 w-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 origin-bottom"
               style={{
