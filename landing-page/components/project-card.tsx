@@ -20,14 +20,20 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const content = (
     <div className="relative h-full flex flex-col sm:flex-row gap-6">
-      {/* Square Image - Left Side */}
+      {/* Phone Mockup with Screenshot */}
       {image && (
-        <div className="flex-shrink-0 w-full sm:w-40 md:w-44 lg:w-52 aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#93c5fd]/10 via-[#c4b5fd]/10 to-[#fbcfe8]/10 border border-[#93c5fd]/15">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover"
-          />
+        <div className="flex-shrink-0 w-full sm:w-44 md:w-48 lg:w-52 aspect-square rounded-2xl overflow-hidden flex items-center justify-center"
+          style={{
+            background: "linear-gradient(145deg, #1a1a1a 0%, #0a2520 50%, #0d3d35 100%)",
+          }}
+        >
+          <div className="relative w-[70%] h-[90%] rounded-[20px] overflow-hidden border-[3px] border-[#2a2a2a] shadow-2xl">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
         </div>
       )}
 
