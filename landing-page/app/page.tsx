@@ -1,53 +1,78 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Hero } from "@/components/hero";
 import { BentoGrid, BentoCard } from "@/components/bento-grid";
 import { ProjectCard } from "@/components/project-card";
+import { ContentCard } from "@/components/content-card";
 import { InterestCard } from "@/components/interest-card";
 import { Footer } from "@/components/footer";
-import { Smartphone, Mail, Mic, BookOpen, Activity } from "lucide-react";
+import { Smartphone, BookOpen, Activity, Mail, Headphones, Youtube, Podcast } from "lucide-react";
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.h2 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+      className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] tracking-[-0.02em] mb-8"
+    >
+      {children}
+    </motion.h2>
+  );
+}
 
 export default function Home() {
+  const platforms = [
+    { name: "Subscribe", href: "https://example.com/newsletter", icon: <Mail className="w-4 h-4" /> },
+    { name: "Spotify", href: "https://spotify.com", icon: <Headphones className="w-4 h-4" /> },
+    { name: "YouTube", href: "https://youtube.com", icon: <Youtube className="w-4 h-4" /> },
+    { name: "Apple", href: "https://podcasts.apple.com", icon: <Podcast className="w-4 h-4" /> },
+  ];
+
   return (
     <div className="relative min-h-screen flex flex-col">
       <main className="relative z-10 flex-1">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          {/* Hero Section */}
           <Hero />
 
-          <section className="pb-24">
-            <BentoGrid>
-              <BentoCard colSpan={2} delay={0.1}>
+          {/* What I'm Building Section */}
+          <section className="py-12">
+            <SectionTitle>What I'm Building.</SectionTitle>
+            <BentoGrid className="grid-cols-1">
+              <BentoCard delay={0.1}>
                 <ProjectCard
                   title="Mobile App"
                   description="A beautifully crafted mobile experience that puts users first. Built with React Native and focused on performance."
                   link="https://example.com"
                   icon={<Smartphone className="w-full h-full" />}
                   image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop"
-                  label="Featured Project"
                 />
               </BentoCard>
+            </BentoGrid>
+          </section>
 
-              <BentoCard delay={0.2}>
-                <ProjectCard
+          {/* What I'm Sharing Section */}
+          <section className="py-12">
+            <SectionTitle>What I'm Sharing.</SectionTitle>
+            <BentoGrid className="grid-cols-1">
+              <BentoCard delay={0.1}>
+                <ContentCard
                   title="Weekly Insights"
-                  description="Every Sunday, thoughts on building, design, and life. Join 1,000+ readers."
-                  link="https://example.com/newsletter"
-                  icon={<Mail className="w-full h-full" />}
-                  label="Subscribe"
+                  description="Every Sunday, I share thoughts on building, design, and life. Available as a newsletter or podcast on your favorite platform."
+                  platforms={platforms}
                 />
               </BentoCard>
+            </BentoGrid>
+          </section>
 
-              <BentoCard delay={0.3}>
-                <ProjectCard
-                  title="The Podcast"
-                  description="Conversations with makers and creators who are shaping the future."
-                  link="https://example.com/podcast"
-                  icon={<Mic className="w-full h-full" />}
-                  label="Listen"
-                />
-              </BentoCard>
-
-              <BentoCard delay={0.4}>
+          {/* What I'm Into Section */}
+          <section className="py-12 pb-24">
+            <SectionTitle>What I'm Into.</SectionTitle>
+            <BentoGrid className="grid-cols-1 md:grid-cols-2">
+              <BentoCard delay={0.1}>
                 <InterestCard
                   title="Currently Reading"
                   items={[
@@ -56,11 +81,10 @@ export default function Home() {
                     "Range by David Epstein",
                   ]}
                   icon={<BookOpen className="w-full h-full" />}
-                  label="Reading"
                 />
               </BentoCard>
 
-              <BentoCard delay={0.5}>
+              <BentoCard delay={0.2}>
                 <InterestCard
                   title="Active Life"
                   items={[
@@ -69,7 +93,6 @@ export default function Home() {
                     "Cycling through the city",
                   ]}
                   icon={<Activity className="w-full h-full" />}
-                  label="Active"
                 />
               </BentoCard>
             </BentoGrid>
