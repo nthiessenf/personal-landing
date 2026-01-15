@@ -59,7 +59,7 @@ export default function Home() {
                 title="Gist | Weekly Newsletter"
                 description="Every week, one new trend or concept in frontier tech explained clearly—AI, chips, the forces reshaping the future. No jargon. No hype. So you're never the one nodding along."
                 platforms={platforms}
-                image="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=600&h=600&fit=crop"
+                image="/images/gist-thumbnail.png"
               />
             </BentoCard>
           </section>
