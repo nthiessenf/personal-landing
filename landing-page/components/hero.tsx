@@ -18,7 +18,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-bold leading-tight mb-6 bg-gradient-to-r from-foreground via-foreground to-muted bg-clip-text text-transparent"
+              className="text-7xl md:text-8xl font-bold tracking-[-0.03em] bg-gradient-to-br from-foreground to-muted bg-clip-text text-transparent leading-[1.1] mb-6"
             >
               Your Name
             </motion.h1>
@@ -26,7 +26,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="text-lg sm:text-xl text-muted max-w-2xl mx-auto lg:mx-0"
+              className="text-xl md:text-2xl text-muted font-normal max-w-2xl mx-auto lg:mx-0"
             >
               Building beautiful experiences with modern web technologies
             </motion.p>
@@ -40,24 +40,13 @@ export function Hero() {
             className="flex-shrink-0 order-1 lg:order-2"
           >
             <div className="relative w-[200px] h-[200px] mx-auto lg:mx-0">
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-300 via-purple-300 to-pink-200 opacity-30 blur-xl animate-pulse-glow" />
+              {/* Glow effect wrapper */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300 via-purple-300 to-pink-200 blur-xl opacity-40 animate-pulse-glow" />
               
               {/* Main circle */}
-              <motion.div
-                className="relative w-full h-full rounded-full bg-gradient-to-br from-blue-300 via-purple-300 to-pink-200 flex items-center justify-center text-foreground font-semibold text-sm shadow-2xl"
-                animate={{
-                  y: [0, -10, 0],
-                  scale: [1, 1.02, 1],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <span className="text-center px-4">YOUR PHOTO</span>
-              </motion.div>
+              <div className="relative w-[200px] h-[200px] rounded-full bg-gradient-to-br from-blue-300 via-purple-300 to-pink-200 flex items-center justify-center text-foreground font-semibold text-sm shadow-[0_20px_40px_rgba(147,197,253,0.25),0_8px_16px_rgba(196,181,253,0.15)] animate-float">
+                <span className="text-center px-4 z-10">YOUR PHOTO</span>
+              </div>
             </div>
           </motion.div>
         </div>

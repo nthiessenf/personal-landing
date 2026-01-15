@@ -10,9 +10,6 @@ import { Smartphone, Mail, Radio, BookOpen, Dumbbell } from "lucide-react";
 export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col">
-      {/* Background gradient */}
-      <div className="background-gradient" />
-
       {/* Main content */}
       <main className="relative z-10 flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

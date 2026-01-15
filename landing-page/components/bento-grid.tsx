@@ -13,7 +13,7 @@ export function BentoGrid({ children, className }: BentoGridProps) {
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]",
         className
       )}
     >
@@ -37,6 +37,11 @@ export function BentoCard({
   rowSpan = 1,
   delay = 0,
 }: BentoCardProps) {
+  const span = cn(
+    colSpan === 2 && "md:col-span-2",
+    rowSpan === 2 && "md:row-span-2"
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -47,48 +52,20 @@ export function BentoCard({
         ease: [0.4, 0, 0.2, 1],
       }}
       className={cn(
-        "group relative rounded-2xl overflow-hidden",
-        "transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
+        "relative overflow-hidden rounded-3xl p-8 md:p-10",
+        "bg-white/70 backdrop-blur-[20px] backdrop-saturate-[180%]",
+        "border border-white/20",
+        "shadow-[0_1px_3px_rgba(0,0,0,0.05),0_20px_40px_rgba(0,0,0,0.03)]",
+        "transition-all duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
         "hover:translate-y-[-8px] hover:scale-[1.02]",
-        colSpan === 2 && "md:col-span-2",
-        rowSpan === 2 && "md:row-span-2",
+        "hover:bg-white/85",
+        "hover:shadow-[0_20px_40px_rgba(0,0,0,0.08),0_8px_16px_rgba(147,197,253,0.12)]",
+        "cursor-pointer",
+        span,
         className
       )}
     >
-      {/* Gradient border wrapper on hover */}
-      <div
-        className={cn(
-          "absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
-          "bg-gradient-to-r from-blue-300 via-purple-300 to-pink-200",
-          "p-[1px]"
-        )}
-      >
-        <div className="w-full h-full rounded-2xl bg-transparent" />
-      </div>
-
-      {/* Main card with glassmorphism */}
-      <div
-        className={cn(
-          "relative rounded-2xl p-6",
-          "bg-[rgba(255,255,255,0.7)] backdrop-blur-[20px]",
-          "border border-[rgba(255,255,255,0.3)]",
-          "shadow-[0_8px_32px_rgba(0,0,0,0.08)]",
-          "group-hover:border-transparent",
-          "group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
-        )}
-      >
-        {/* Spotlight effect on hover */}
-        <div
-          className={cn(
-            "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
-            "pointer-events-none rounded-2xl",
-            "bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
-          )}
-        />
-
-        {/* Content */}
-        <div className="relative z-10">{children}</div>
-      </div>
+      {children}
     </motion.div>
   );
 }

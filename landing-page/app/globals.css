@@ -4,27 +4,84 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: rgba(29, 29, 31, 0.08);
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
   }
 }
 
-/* Animated gradient background */
-.background-gradient {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(147, 197, 253, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(251, 207, 232, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(196, 181, 253, 0.06) 0%, transparent 50%);
-  animation: gradient-shift 20s ease infinite;
-  z-index: 0;
-  pointer-events: none;
+@layer components {
+  .background-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 30%, rgba(147, 197, 253, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 70%, rgba(251, 207, 232, 0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 50% 50%, rgba(196, 181, 253, 0.08) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+    animation: gradient-breathe 15s ease-in-out infinite;
+  }
+}
+
+@keyframes gradient-breathe {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.02); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-12px); 
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.35; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.5; 
+    transform: scale(1.05); 
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
 }
