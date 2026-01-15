@@ -20,12 +20,7 @@ export function ContentCard({ title, description, platforms, image }: ContentCar
     <div className="h-full flex flex-col sm:flex-row gap-6">
       {/* Square Image - Left Side */}
       {image && (
-        <div 
-          className="flex-shrink-0 w-full sm:w-40 md:w-44 lg:w-52 rounded-2xl overflow-hidden bg-gradient-to-br from-[#93c5fd]/10 via-[#c4b5fd]/10 to-[#fbcfe8]/10 border border-[#93c5fd]/15"
-          style={{
-            aspectRatio: "1 / 1",
-          }}
-        >
+        <div className="flex-shrink-0 w-[180px] h-[180px] rounded-2xl overflow-hidden bg-gradient-to-br from-[#93c5fd]/10 via-[#c4b5fd]/10 to-[#fbcfe8]/10 border border-[#93c5fd]/15 mx-auto sm:mx-0">
           <img
             src={image}
             alt={title}
