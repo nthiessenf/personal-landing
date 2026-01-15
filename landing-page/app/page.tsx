@@ -5,78 +5,78 @@ import { BentoGrid, BentoCard } from "@/components/bento-grid";
 import { ProjectCard } from "@/components/project-card";
 import { InterestCard } from "@/components/interest-card";
 import { Footer } from "@/components/footer";
-import { Smartphone, Mail, Radio, BookOpen, Dumbbell } from "lucide-react";
+import { Smartphone, Mail, Mic, BookOpen, Activity } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col">
-      {/* Main content */}
       <main className="relative z-10 flex-1">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Section */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Hero />
 
-          {/* Bento Grid */}
-          <div className="py-16">
+          <section className="pb-24">
             <BentoGrid>
-              {/* Mobile App - Large card (col-span-2) */}
               <BentoCard colSpan={2} delay={0.1}>
                 <ProjectCard
                   title="Mobile App"
-                  description="A beautiful mobile application built with React Native. Features modern UI/UX design, smooth animations, and seamless user experience."
+                  description="A beautifully crafted mobile experience that puts users first. Built with React Native and focused on performance."
                   link="https://example.com"
-                  icon={<Smartphone />}
-                  image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop"
+                  icon={<Smartphone className="w-full h-full" />}
+                  image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop"
+                  label="Featured Project"
                 />
               </BentoCard>
 
-              {/* Newsletter */}
               <BentoCard delay={0.2}>
                 <ProjectCard
-                  title="Newsletter"
-                  description="Weekly insights on technology, design, and productivity. Join thousands of subscribers."
+                  title="Weekly Insights"
+                  description="Every Sunday, thoughts on building, design, and life. Join 1,000+ readers."
                   link="https://example.com/newsletter"
-                  icon={<Mail />}
+                  icon={<Mail className="w-full h-full" />}
+                  label="Subscribe"
                 />
               </BentoCard>
 
-              {/* Podcast */}
               <BentoCard delay={0.3}>
                 <ProjectCard
-                  title="Podcast"
-                  description="Conversations with industry leaders about their journey, insights, and lessons learned."
+                  title="The Podcast"
+                  description="Conversations with makers and creators who are shaping the future."
                   link="https://example.com/podcast"
-                  icon={<Radio />}
+                  icon={<Mic className="w-full h-full" />}
+                  label="Listen"
                 />
               </BentoCard>
 
-              {/* Reading List */}
               <BentoCard delay={0.4}>
                 <InterestCard
-                  title="Reading List"
+                  title="Currently Reading"
                   items={[
                     "The Design of Everyday Things",
                     "Atomic Habits",
-                    "The Pragmatic Programmer",
+                    "Range by David Epstein",
                   ]}
-                  icon={<BookOpen />}
+                  icon={<BookOpen className="w-full h-full" />}
+                  label="Reading"
                 />
               </BentoCard>
 
-              {/* Sports/Activities */}
               <BentoCard delay={0.5}>
                 <InterestCard
-                  title="Sports & Activities"
-                  items={["Running", "Cycling", "Rock Climbing"]}
-                  icon={<Dumbbell />}
+                  title="Active Life"
+                  items={[
+                    "Running 5K three times a week",
+                    "Tennis on weekends",
+                    "Cycling through the city",
+                  ]}
+                  icon={<Activity className="w-full h-full" />}
+                  label="Active"
                 />
               </BentoCard>
             </BentoGrid>
-          </div>
+          </section>
         </div>
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
