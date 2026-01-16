@@ -53,6 +53,7 @@ export default function Home() {
                 icon={<Dumbbell className="w-full h-full" />}
                 image="/images/lifttrack-screenshot.png"
                 links={lifttrackLinks}
+                href="https://testflight.apple.com/join/kaB6bdcu"
               />
             </BentoCard>
           </section>
@@ -66,6 +67,7 @@ export default function Home() {
                 description="Every week, one new trend or concept in frontier tech explained clearly—AI, chips, the forces reshaping the future. No jargon. No hype. So you're never the one nodding along."
                 platforms={newsletterPlatforms}
                 image="/images/gist-thumbnail.png"
+                href="https://www.gist-newsletter.com"
               />
             </BentoCard>
           </section>
