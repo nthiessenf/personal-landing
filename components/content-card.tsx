@@ -13,10 +13,11 @@ interface ContentCardProps {
   description: string;
   platforms: PlatformLink[];
   image?: string;
+  href?: string;
 }
 
-export function ContentCard({ title, description, platforms, image }: ContentCardProps) {
-  return (
+export function ContentCard({ title, description, platforms, image, href }: ContentCardProps) {
+  const content = (
     <div className="h-full flex flex-col sm:flex-row gap-6">
       {/* Square Image - Left Side */}
       {image && (
@@ -59,6 +60,7 @@ export function ContentCard({ title, description, platforms, image }: ContentCar
               href={platform.href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#1d1d1f] text-white text-sm font-medium transition-all duration-300 hover:bg-[#000] hover:scale-[1.02] hover:shadow-lg"
             >
               {platform.icon}
@@ -69,4 +71,19 @@ export function ContentCard({ title, description, platforms, image }: ContentCar
       </div>
     </div>
   );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full cursor-pointer"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="h-full">{content}</div>;
 }
