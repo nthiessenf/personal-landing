@@ -51,10 +51,10 @@ export function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] bg-gradient-to-br from-[#1d1d1f] to-[#6e6e73] bg-clip-text text-transparent leading-[1.1] mb-4">
               Nikolas Thiessen
             </h1>
-            <div className="text-base sm:text-lg lg:text-xl text-[#6e6e73] font-normal max-w-md mx-auto lg:mx-0 leading-relaxed">
+            <div className="text-base sm:text-lg lg:text-xl text-[#6e6e73] font-normal max-w-md mx-auto lg:mx-0 leading-relaxed space-y-1">
               <p className="font-medium text-[#1d1d1f]">Product Engineer</p>
-              <p>Currently: Building products at Amazon</p>
-              <p>Learning: Latest trends in AI</p>
+              <p>Building products at Amazon</p>
+              <p>Exploring the latest in AI</p>
             </div>
           </motion.div>
         </div>
