@@ -3,23 +3,25 @@
 ## Owner
 **Nikolas Thiessen** - Product Engineer at Amazon
 
+## Live Site
+**https://niko-thiessen.com**
+
 ---
 
 ## Project Overview
 
 A premium, Apple-style personal landing page built with Next.js 14, Tailwind CSS 3, and Framer Motion. Features glassmorphism effects, soft pastel gradients, and smooth animations following "radical minimalism" design principles.
 
-**Live Dev Server:** `npm run dev` → http://localhost:3000
-
 ---
 
 ## Tech Stack
 
 - **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS v3 (downgraded from v4 for compatibility)
+- **Styling:** Tailwind CSS v3
 - **Animation:** Framer Motion
 - **Icons:** Lucide React
-- **Deployment:** Vercel (pending)
+- **Hosting:** Vercel
+- **Domain:** Porkbun (niko-thiessen.com)
 
 ---
 
@@ -27,26 +29,29 @@ A premium, Apple-style personal landing page built with Next.js 14, Tailwind CSS
 
 ```
 PersonalLanding/
-└── landing-page/
-    ├── app/
-    │   ├── globals.css          # Global styles, animations, background gradient
-    │   ├── layout.tsx           # Root layout with background gradient
-    │   └── page.tsx             # Main page with all sections
-    ├── components/
-    │   ├── bento-grid.tsx       # Glassmorphism card grid system
-    │   ├── hero.tsx             # Hero section with photo + name
-    │   ├── project-card.tsx     # Card for LiftTrack app
-    │   ├── content-card.tsx     # Card for newsletter/podcast
-    │   ├── interest-card.tsx    # Cards for reading/hobbies
-    │   └── footer.tsx           # Footer with social links
-    ├── public/
-    │   └── images/
-    │       ├── headshot.png           # Nikolas's profile photo
-    │       ├── lifttrack-screenshot.png  # LiftTrack app screenshot
-    │       └── gist-thumbnail.png     # Newsletter thumbnail
-    ├── tailwind.config.ts       # Tailwind configuration
-    ├── postcss.config.mjs       # PostCSS config (uses tailwindcss v3)
-    └── package.json
+├── app/
+│   ├── globals.css          # Global styles, animations, background gradient
+│   ├── layout.tsx           # Root layout with background gradient
+│   └── page.tsx             # Main page with all sections
+├── components/
+│   ├── bento-grid.tsx       # Glassmorphism card grid system
+│   ├── hero.tsx             # Hero section with photo + name
+│   ├── project-card.tsx     # Card for LiftTrack app (with buttons)
+│   ├── content-card.tsx     # Card for newsletter/podcast
+│   ├── interest-card.tsx    # Cards for reading/hobbies
+│   └── footer.tsx           # Footer with social links
+├── public/
+│   └── images/
+│       ├── headshot.png           # Nikolas's profile photo
+│       ├── lifttrack-screenshot.png  # LiftTrack app screenshot
+│       └── gist-thumbnail.png     # Newsletter thumbnail
+├── lib/
+│   └── utils.ts             # Utility functions (cn helper)
+├── tailwind.config.ts       # Tailwind configuration
+├── postcss.config.mjs       # PostCSS config (uses tailwindcss v3)
+├── next.config.ts           # Next.js configuration
+├── package.json             # Dependencies
+└── PROJECT_SUMMARY.md       # This file
 ```
 
 ---
@@ -57,8 +62,8 @@ PersonalLanding/
 ┌─────────────────────────────────────────────────────────────┐
 │  [Photo]    Nikolas Thiessen                                │
 │             Product Engineer                                │
-│             Currently: Building products at Amazon          │
-│             Learning: Latest trends in AI                   │
+│             Building products at Amazon                     │
+│             Exploring the latest in AI                      │
 └─────────────────────────────────────────────────────────────┘
 
 What I'm Building.
@@ -66,6 +71,7 @@ What I'm Building.
 │  [App Screenshot]    LiftTrack                              │
 │                      An iOS local-first workout tracking    │
 │                      app built with React Native...         │
+│                      [TestFlight] [GitHub]                  │
 └─────────────────────────────────────────────────────────────┘
 
 What I'm Sharing.
@@ -73,7 +79,7 @@ What I'm Sharing.
 │  [Newsletter         Gist | Weekly Newsletter               │
 │   Thumbnail]         Every week, one new trend or concept   │
 │                      in frontier tech explained clearly...  │
-│                      [Subscribe] [Spotify] [YouTube] [Apple]│
+│                      [Read Now] [Spotify] [YouTube] [Apple] │
 └─────────────────────────────────────────────────────────────┘
 
 What I'm Into.
@@ -87,7 +93,7 @@ What I'm Into.
 └──────────────────────────┴──────────────────────────────────┘
 
 ─────────────────────────────────────────────────────────────
-© 2025 Nikolas Thiessen          [GitHub] [LinkedIn] [Email]
+© 2025 Nikolas Thiessen               [GitHub] [LinkedIn] [Email]
 ```
 
 ---
@@ -97,21 +103,24 @@ What I'm Into.
 ### Hero Section
 - **Name:** Nikolas Thiessen
 - **Title:** Product Engineer
-- **Currently:** Building products at Amazon
-- **Learning:** Latest trends in AI
+- **Line 2:** Building products at Amazon
+- **Line 3:** Exploring the latest in AI
+- **Photo:** `/images/headshot.png`
 
 ### What I'm Building
 - **Project:** LiftTrack
 - **Description:** An iOS local-first workout tracking app built with React Native. Features weekly goals, progress monitoring, and routine management to help you stay consistent.
-- **Link:** None currently (TestFlight not set up for public link yet)
 - **Image:** `/images/lifttrack-screenshot.png`
+- **Links:**
+  - TestFlight: https://testflight.apple.com/join/kaB6bdcu
+  - GitHub: https://github.com/nthiessenf
 
 ### What I'm Sharing
 - **Title:** Gist | Weekly Newsletter
 - **Description:** Every week, one new trend or concept in frontier tech explained clearly—AI, chips, the forces reshaping the future. No jargon. No hype. So you're never the one nodding along.
 - **Image:** `/images/gist-thumbnail.png`
 - **Platform Links:**
-  - Subscribe: https://www.gist-newsletter.com
+  - Read Now: https://www.gist-newsletter.com
   - Spotify: https://open.spotify.com/show/0r6kYx2AC8yYwwygyi0R2G?si=mIsLYI5OQIW1qoIs27gGpA
   - YouTube: https://youtube.com/@gist-tech-newsletter?si=QpeEWIpQRz-SMBrH
   - Apple Podcasts: https://podcasts.apple.com/us/podcast/gist/id1869418127
@@ -127,11 +136,10 @@ What I'm Into.
 - Surfing — planning my next trip to Indonesia
 - Gym — staying young, one rep at a time
 
-### Social Links
+### Footer Social Links
 - GitHub: https://github.com/nthiessenf
 - LinkedIn: https://www.linkedin.com/in/nthiessen/
 - Email: nthiessenf@gmail.com
-- Twitter/X: Not included
 
 ---
 
@@ -158,6 +166,11 @@ What I'm Into.
 - **Heading:** Bold, tracking-[-0.03em]
 - **Body:** Regular weight, text-[#6e6e73]
 
+### Card Thumbnails
+- **Fixed size:** 180px × 180px (prevents stretching at different zoom levels)
+- **LiftTrack:** Phone mockup with dark gradient background
+- **Newsletter:** Square image with subtle border
+
 ---
 
 ## Key Decisions Made
@@ -168,86 +181,65 @@ What I'm Into.
 
 3. **Section titles** - Apple-style "What I'm Building." / "What I'm Sharing." / "What I'm Into."
 
-4. **Horizontal card layout** - Square thumbnail on left, content on right (more compact than vertical)
+4. **Horizontal card layout** - Square thumbnail on left, content on right
 
 5. **Fixed image dimensions** - 180x180px to prevent stretching at different zoom levels
 
 6. **Photo on left** - Hero layout has headshot on left, name/tagline on right
 
-7. **Combined Newsletter + Podcast** - Single "Gist" card with platform buttons (Subscribe, Spotify, YouTube, Apple)
+7. **Combined Newsletter + Podcast** - Single "Gist" card with platform buttons
+
+8. **Tagline style** - Simple lines without colons (cleaner look)
+
+9. **Project buttons** - TestFlight + GitHub buttons on LiftTrack card
+
+10. **Flattened project structure** - Moved files from `landing-page/` to root for simpler Vercel deployment
 
 ---
 
-## Remaining Tasks
+## Deployment
 
-### Small Fixes (Optional)
-- [ ] Replace LiftTrack screenshot (current one has "Claude content" watermark)
-- [ ] Any typography/spacing tweaks
-- [ ] Test on actual mobile device
+### Vercel Setup
+- **Project:** personal-landing
+- **Framework:** Next.js (auto-detected)
+- **Root Directory:** `.` (files at root level)
+- **Build Command:** `next build` (default)
+- **Output Directory:** `.next` (default)
 
-### Deployment
-- [ ] Push to GitHub
-- [ ] Deploy to Vercel
-- [ ] Set up custom domain (optional)
+### Domain Configuration (Porkbun)
+DNS Records:
+| Type | Host | Value |
+|------|------|-------|
+| A | @ (blank) | 76.76.21.21 |
+| CNAME | www | cname.vercel-dns.com |
 
-### Future Enhancements
-- [ ] Add TestFlight link once available
-- [ ] Add Twitter/X when ready
-- [ ] Add more projects as needed
-- [ ] Consider dark mode toggle
-
----
-
-## How to Resume Development
-
-1. Navigate to project:
-   ```bash
-   cd ~/Projects/PersonalLanding/landing-page
-   ```
-
-2. Start dev server:
-   ```bash
-   npm run dev
-   ```
-
-3. Open http://localhost:3000
-
-4. To make changes, use Cursor's AI agent (Cmd+I) with prompts like:
-   ```
-   Replace the ENTIRE contents of [filename] with exactly this code. Do not modify or improve anything:
-   
-   [paste code here]
-   ```
+### URLs
+- **Production:** https://niko-thiessen.com
+- **www redirect:** https://www.niko-thiessen.com → https://niko-thiessen.com
+- **Vercel URL:** https://personal-landing-henna.vercel.app
 
 ---
 
-## Deployment to Vercel (When Ready)
+## Development Commands
 
-1. Push to GitHub:
-   ```bash
-   git add .
-   git commit -m "Ready for deployment"
-   git push origin main
-   ```
-
-2. Go to https://vercel.com
-
-3. Click "New Project"
-
-4. Import your GitHub repository
-
-5. Vercel auto-detects Next.js - just click "Deploy"
-
-6. Your site will be live at `your-project.vercel.app`
-
-7. (Optional) Add custom domain in Vercel dashboard
-
----
-
-## File Reference
-
-For quick access to current component code, run:
+### Local Development
 ```bash
+cd ~/Projects/PersonalLanding
+npm run dev
+```
+Opens at http://localhost:3000
+
+### Deploy Changes
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+Vercel auto-deploys on push to main branch.
+
+### Useful Commands
+```bash
+# View component code
 cat components/hero.tsx
 cat components/project-card.tsx
 cat components/content-card.tsx
@@ -256,4 +248,64 @@ cat components/bento-grid.tsx
 cat components/footer.tsx
 cat app/page.tsx
 cat app/globals.css
+
+# Clear Next.js cache (if styles aren't updating)
+rm -rf .next && npm run dev
 ```
+
+---
+
+## How to Make Changes
+
+### Using Cursor AI Agent
+1. Open Cursor
+2. Press **Cmd+I** to open AI Composer
+3. Use prompts like:
+   ```
+   Replace the ENTIRE contents of [filename] with exactly this code. Do not modify or improve anything:
+   
+   [paste code here]
+   ```
+
+### After Making Changes
+1. Test locally: `npm run dev`
+2. Commit and push:
+   ```bash
+   git add .
+   git commit -m "Description of changes"
+   git push origin main
+   ```
+3. Vercel auto-deploys within 1-2 minutes
+
+---
+
+## Future Enhancements
+
+- [ ] Replace LiftTrack screenshot (remove "Claude content" watermark)
+- [ ] Add Twitter/X link when ready
+- [ ] Add more projects as needed
+- [ ] Consider dark mode toggle
+- [ ] Add analytics (Vercel Analytics or Plausible)
+- [ ] Add SEO meta tags and Open Graph images
+
+---
+
+## Troubleshooting
+
+### Styles not updating?
+```bash
+rm -rf .next && npm run dev
+```
+
+### Vercel build failing?
+- Check that all files are committed and pushed
+- Verify Root Directory is set correctly in Vercel settings
+
+### Images not showing?
+- Ensure images are in `public/images/`
+- Use paths like `/images/headshot.png` (starting with `/`)
+
+### DNS not working?
+- Wait 5-30 minutes for propagation
+- Verify records in Porkbun match Vercel's requirements
+- Click "Refresh" in Vercel Domains settings
