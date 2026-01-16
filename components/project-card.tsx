@@ -14,6 +14,7 @@ interface ProjectCardProps {
   icon?: ReactNode;
   image?: string;
   links?: ProjectLink[];
+  href?: string;
 }
 
 export function ProjectCard({
@@ -22,8 +23,9 @@ export function ProjectCard({
   icon,
   image,
   links,
+  href,
 }: ProjectCardProps) {
-  return (
+  const content = (
     <div className="relative h-full flex flex-col sm:flex-row gap-6">
       {/* Phone Mockup with Screenshot */}
       {image && (
@@ -76,6 +78,7 @@ export function ProjectCard({
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#1d1d1f] text-white text-sm font-medium transition-all duration-300 hover:bg-[#000] hover:scale-[1.02] hover:shadow-lg"
               >
                 {link.icon}
@@ -87,4 +90,19 @@ export function ProjectCard({
       </div>
     </div>
   );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full cursor-pointer"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="h-full">{content}</div>;
 }
