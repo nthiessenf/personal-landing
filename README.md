@@ -2,17 +2,6 @@
 
 A premium, Apple-inspired personal landing page built with modern web technologies. Features glassmorphism effects, soft pastel gradients, and smooth animations following radical minimalism design principles.
 
-<div align="center">
-  
-  ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
-  ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3-38bdf8?style=flat-square&logo=tailwindcss)
-  ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript)
-  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-ff0055?style=flat-square)
-  
-  [View Live Site](https://niko-thiessen.com) · [Report Bug](https://github.com/nthiessenf/personal-landing/issues)
-  
-</div>
-
 ---
 
 ## ✨ Features
