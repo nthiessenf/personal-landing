@@ -107,10 +107,21 @@ What I'm Into.
 - **Line 3:** Exploring the latest in AI
 - **Photo:** `/images/headshot.png`
 
-### What I'm Building
+### What I'm Building - FrugalScan (NEW - Added Jan 30, 2025)
+- **Project:** FrugalScan
+- **Description:** AI-powered spending insights from your bank statements. Upload a PDF, get personalized analysis in 60 seconds—no account linking required. Built with Next.js, Claude API, and Recharts.
+- **Video:** `/videos/frugalscan-demo.mp4` (11MB - ACTION ITEM: compress to ~5MB)
+- **Thumbnail:** `/images/frugalscan-thumbnail.png`
+- **Links:**
+  - Demo: Video plays inline on click
+  - Try It Now: https://frugalscan.com
+  - GitHub: https://github.com/nthiessenf
+
+### What I'm Building - LiftTrack (UPDATED - Jan 30, 2025)
+- **Updated:** Changed from single phone screenshot to dual-screenshot layout
+- **Image:** `/images/lifttrack-dual-screenshot.png` (400×225px landscape with two phone mockups)
 - **Project:** LiftTrack
 - **Description:** An iOS local-first workout tracking app built with React Native. Features weekly goals, progress monitoring, and routine management to help you stay consistent.
-- **Image:** `/images/lifttrack-screenshot.png`
 - **Links:**
   - TestFlight: https://testflight.apple.com/join/kaB6bdcu
   - GitHub: https://github.com/nthiessenf
@@ -194,6 +205,13 @@ What I'm Into.
 9. **Project buttons** - TestFlight + GitHub buttons on LiftTrack card
 
 10. **Flattened project structure** - Moved files from `landing-page/` to root for simpler Vercel deployment
+
+| Date | Decision | Rationale |
+|------|----------|-----------|
+| Jan 30 | Added FrugalScan project card | Showcases web app portfolio piece with video demo, prioritized over mobile app |
+| Jan 30 | Dual-screenshot layout for LiftTrack | Created 400×225px landscape thumbnail with two phone mockups for visual consistency |
+| Jan 30 | Clickable cards without nested links | Used div+onClick instead of anchor tags to avoid hydration errors while keeping cards clickable |
+| Jan 30 | Dollar sign icons for FrugalScan | Changed from Mail icon to DollarSign to better represent finance app purpose |
 
 ---
 
@@ -287,6 +305,9 @@ rm -rf .next && npm run dev
 - [ ] Consider dark mode toggle
 - [ ] Add analytics (Vercel Analytics or Plausible)
 - [ ] Add SEO meta tags and Open Graph images
+- [ ] Compress FrugalScan demo video from 11MB to ~5MB for faster loading
+- [ ] Consider adding loading skeleton for video thumbnail
+- [ ] Add video preload optimization
 
 ---
 
