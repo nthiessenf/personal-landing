@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useState, useRef } from "react";
+import { Play } from "lucide-react";
 
 interface ProjectLink {
   name: string;
@@ -13,6 +14,8 @@ interface ProjectCardProps {
   description: string;
   icon?: ReactNode;
   image?: string;
+  videoUrl?: string;
+  videoThumbnail?: string;
   links?: ProjectLink[];
   href?: string;
 }
@@ -22,13 +25,86 @@ export function ProjectCard({
   description,
   icon,
   image,
+  videoUrl,
+  videoThumbnail,
   links,
   href,
 }: ProjectCardProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayClick = () => {
+    setIsPlaying(true);
+    setTimeout(() => {
+      videoRef.current?.play();
+    }, 100);
+  };
+
   const content = (
     <div className="relative h-full flex flex-col sm:flex-row gap-6">
-      {/* Phone Mockup with Screenshot */}
-      {image && (
+      {/* Video Player or Image */}
+      {videoUrl ? (
+        <div className="flex-shrink-0 w-full sm:w-[400px] rounded-2xl overflow-hidden relative group">
+          {!isPlaying ? (
+            // Video Thumbnail with Play Button
+            <div 
+              onClick={handlePlayClick}
+              className="relative w-full aspect-video cursor-pointer bg-gradient-to-br from-gray-100 to-gray-200"
+            >
+              {videoThumbnail ? (
+                <img
+                  src={videoThumbnail}
+                  alt={`${title} demo`}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    console.log('Thumbnail failed to load');
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-[#6e6e73] text-sm">
+                  {title} demo
+                </div>
+              )}
+              {/* Play Button Overlay */}
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-all group-hover:bg-black/30">
+                <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg transition-all group-hover:scale-110 group-hover:bg-white">
+                  <Play className="w-7 h-7 text-[#1d1d1f] ml-1" fill="currentColor" />
+                </div>
+              </div>
+            </div>
+          ) : (
+            // Video Player
+            <video
+              ref={videoRef}
+              className="w-full aspect-video rounded-2xl"
+              controls
+              poster={videoThumbnail}
+              onError={(e) => {
+                console.error('Video failed to load');
+                setIsPlaying(false);
+              }}
+            >
+              <source src={videoUrl} type="video/mp4" />
+              Your browser does not support video playback.
+            </video>
+          )}
+        </div>
+      ) : videoThumbnail ? (
+        // Static Landscape Image (videoThumbnail without videoUrl)
+        <div className="flex-shrink-0 w-full sm:w-[400px] rounded-2xl overflow-hidden">
+          <img
+            src={videoThumbnail}
+            alt={title}
+            className="w-full aspect-video object-cover rounded-2xl"
+            onError={(e) => {
+              console.log('Thumbnail failed to load');
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </div>
+      ) : image ? (
+        // Phone Mockup with Screenshot (existing)
         <div 
           className="flex-shrink-0 w-[180px] h-[180px] rounded-2xl overflow-hidden flex items-center justify-center mx-auto sm:mx-0"
           style={{
@@ -43,7 +119,7 @@ export function ProjectCard({
             />
           </div>
         </div>
-      )}
+      ) : null}
 
       {/* Content - Right Side */}
       <div className="flex-1 flex flex-col justify-center">
@@ -72,35 +148,67 @@ export function ProjectCard({
         {/* Links/Buttons */}
         {links && links.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#1d1d1f] text-white text-sm font-medium transition-all duration-300 hover:bg-[#000] hover:scale-[1.02] hover:shadow-lg"
-              >
-                {link.icon}
-                <span>{link.name}</span>
-              </a>
-            ))}
+            {links.map((link) => {
+              const isWatchDemo = link.name === "Demo";
+              
+              if (isWatchDemo) {
+                return (
+                  <button
+                    key={link.name}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePlayClick();
+                    }}
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#1d1d1f] text-white text-sm font-medium transition-all duration-300 hover:bg-[#000] hover:scale-[1.02] hover:shadow-lg"
+                  >
+                    {link.icon}
+                    <span>{link.name}</span>
+                  </button>
+                );
+              }
+              
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#1d1d1f] text-white text-sm font-medium transition-all duration-300 hover:bg-[#000] hover:scale-[1.02] hover:shadow-lg"
+                >
+                  {link.icon}
+                  <span>{link.name}</span>
+                </a>
+              );
+            })}
           </div>
         )}
       </div>
     </div>
   );
 
+  const handleCardClick = () => {
+    if (href) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   if (href) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block h-full cursor-pointer"
+      <div 
+        onClick={handleCardClick}
+        className="h-full cursor-pointer"
+        role="link"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleCardClick();
+          }
+        }}
       >
         {content}
-      </a>
+      </div>
     );
   }
 

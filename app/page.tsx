@@ -7,14 +7,14 @@ import { ProjectCard } from "@/components/project-card";
 import { ContentCard } from "@/components/content-card";
 import { InterestCard } from "@/components/interest-card";
 import { Footer } from "@/components/footer";
-import { Dumbbell, BookOpen, Activity, Mail, Headphones, Youtube, Podcast, Github, Smartphone } from "lucide-react";
+import { Dumbbell, BookOpen, Activity, Mail, Headphones, Youtube, Podcast, Github, Smartphone, Play, DollarSign } from "lucide-react";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <motion.h2 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
       className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1d1d1f] tracking-[-0.02em] mb-6"
     >
@@ -46,12 +46,31 @@ export default function Home() {
           {/* What I'm Building Section */}
           <section className="py-10">
             <SectionTitle>What I'm Building.</SectionTitle>
-            <BentoCard delay={0.1} className="w-full">
+            
+            {/* FrugalScan - Featured Project */}
+            <BentoCard delay={0.1} className="w-full mb-5">
+              <ProjectCard
+                title="FrugalScan"
+                description="AI-powered spending insights from your bank statements. Upload a PDF, get personalized analysis in 60 seconds—no account linking required. Built with Next.js, Claude API, and Recharts."
+                icon={<DollarSign className="w-full h-full" />}
+                videoUrl="/videos/frugalscan-demo.mp4"
+                videoThumbnail="/images/frugalscan-thumbnail.png"
+                links={[
+                  { name: "Demo", href: "#watch-demo", icon: <Play className="w-4 h-4" /> },
+                  { name: "Try It Now", href: "https://frugalscan.com", icon: <DollarSign className="w-4 h-4" /> },
+                  { name: "GitHub", href: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
+                ]}
+                href="https://frugalscan.com"
+              />
+            </BentoCard>
+
+            {/* LiftTrack */}
+            <BentoCard delay={0.2} className="w-full">
               <ProjectCard
                 title="LiftTrack"
                 description="An iOS local-first workout tracking app built with React Native. Features weekly goals, progress monitoring, and routine management to help you stay consistent."
                 icon={<Dumbbell className="w-full h-full" />}
-                image="/images/lifttrack-screenshot.png"
+                videoThumbnail="/images/lifttrack-dual-screenshot.png"
                 links={lifttrackLinks}
                 href="https://testflight.apple.com/join/kaB6bdcu"
               />

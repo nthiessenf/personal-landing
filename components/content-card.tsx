@@ -1,27 +1,39 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { ReactNode } from "react";
 
-interface PlatformLink {
+interface Platform {
   name: string;
   href: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
 }
 
 interface ContentCardProps {
   title: string;
   description: string;
-  platforms: PlatformLink[];
+  platforms?: Platform[];
   image?: string;
   href?: string;
 }
 
-export function ContentCard({ title, description, platforms, image, href }: ContentCardProps) {
+export function ContentCard({
+  title,
+  description,
+  platforms,
+  image,
+  href,
+}: ContentCardProps) {
+  const handleCardClick = () => {
+    if (href) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   const content = (
     <div className="h-full flex flex-col sm:flex-row gap-6">
-      {/* Square Image - Left Side */}
+      {/* Thumbnail */}
       {image && (
-        <div className="flex-shrink-0 w-[180px] h-[180px] rounded-2xl overflow-hidden bg-gradient-to-br from-[#93c5fd]/10 via-[#c4b5fd]/10 to-[#fbcfe8]/10 border border-[#93c5fd]/15 mx-auto sm:mx-0">
+        <div className="flex-shrink-0 w-[180px] h-[180px] rounded-2xl overflow-hidden mx-auto sm:mx-0">
           <img
             src={image}
             alt={title}
@@ -30,31 +42,19 @@ export function ContentCard({ title, description, platforms, image, href }: Cont
         </div>
       )}
 
-      {/* Content - Right Side */}
+      {/* Content */}
       <div className="flex-1 flex flex-col justify-center">
-        {/* Header */}
-        <div className="flex items-center gap-3 mb-2">
-          <div 
-            className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm"
-            style={{
-              background: "linear-gradient(135deg, rgba(147, 197, 253, 0.5), rgba(196, 181, 253, 0.4))",
-            }}
-          >
-            <Mail className="w-[18px] h-[18px] text-white" />
-          </div>
-          <h3 className="text-xl sm:text-2xl font-semibold text-[#1d1d1f] tracking-[-0.01em]">
-            {title}
-          </h3>
-        </div>
+        <h3 className="text-xl sm:text-2xl font-semibold text-[#1d1d1f] tracking-[-0.01em] mb-2">
+          {title}
+        </h3>
 
-        {/* Description */}
         <p className="text-[15px] sm:text-base text-[#6e6e73] leading-relaxed mb-5">
           {description}
         </p>
 
         {/* Platform Links */}
         <div className="flex flex-wrap items-center gap-2">
-          {platforms.map((platform) => (
+          {platforms?.map((platform) => (
             <a
               key={platform.name}
               href={platform.href}
@@ -74,14 +74,20 @@ export function ContentCard({ title, description, platforms, image, href }: Cont
 
   if (href) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block h-full cursor-pointer"
+      <div 
+        onClick={handleCardClick}
+        className="h-full cursor-pointer"
+        role="link"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleCardClick();
+          }
+        }}
       >
         {content}
-      </a>
+      </div>
     );
   }
 
