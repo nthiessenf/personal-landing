@@ -102,10 +102,11 @@ What I'm Into.
 
 ### Hero Section
 - **Name:** Nikolas Thiessen
-- **Title:** Product Engineer
-- **Line 2:** Building products at Amazon
+- **Title:** Product Builder
+- **Line 2:** Scaling products at Amazon
 - **Line 3:** Exploring the latest in AI
 - **Photo:** `/images/headshot.png`
+- **Resume Link:** `/resume.pdf` (opens in new tab, appears below bio)
 
 ### What I'm Building - FrugalScan (NEW - Added Jan 30, 2025)
 - **Project:** FrugalScan
@@ -206,12 +207,15 @@ What I'm Into.
 
 10. **Flattened project structure** - Moved files from `landing-page/` to root for simpler Vercel deployment
 
+11. **Resume link placement** - Added below hero bio (not footer or separate card) for natural information flow and professional discoverability
+
 | Date | Decision | Rationale |
 |------|----------|-----------|
 | Jan 30 | Added FrugalScan project card | Showcases web app portfolio piece with video demo, prioritized over mobile app |
 | Jan 30 | Dual-screenshot layout for LiftTrack | Created 400×225px landscape thumbnail with two phone mockups for visual consistency |
 | Jan 30 | Clickable cards without nested links | Used div+onClick instead of anchor tags to avoid hydration errors while keeping cards clickable |
 | Jan 30 | Dollar sign icons for FrugalScan | Changed from Mail icon to DollarSign to better represent finance app purpose |
+| Feb 1 | Resume link in hero section | Natural placement below bio for professional context without disrupting narrative structure |
 
 ---
 

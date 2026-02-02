@@ -39,3 +39,16 @@
 - Uses div+onClick pattern to avoid nested anchor tags
 - Keyboard accessible (Enter/Space keys work)
 
+### Hero Component (Updated Feb 1, 2025)
+**New Features:**
+- Resume link with animated underline on hover
+- ArrowUpRight icon from Lucide React
+- Opens in new tab with `target="_blank"`
+- Positioned below three-line bio with 24px margin
+
+**Styling:**
+- Base color: `text-[#6e6e73]` (secondary gray)
+- Hover color: `text-[#1d1d1f]` (primary dark)
+- Animated underline: 0 → 100% width on hover (0.3s transition)
+- Icon animation: Translates diagonally (+0.5px x/y) on hover
+- Font size: 14px (smaller than bio to maintain hierarchy)
