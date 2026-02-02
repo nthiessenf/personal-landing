@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 export function Hero() {
   return (
@@ -51,11 +52,28 @@ export function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] bg-gradient-to-br from-[#1d1d1f] to-[#6e6e73] bg-clip-text text-transparent leading-[1.1] mb-4">
               Nikolas Thiessen
             </h1>
-            <div className="text-base sm:text-lg lg:text-xl text-[#6e6e73] font-normal max-w-md mx-auto lg:mx-0 leading-relaxed space-y-1">
+            <div className="text-base sm:text-lg lg:text-xl text-[#6e6e73] font-normal max-w-md mx-auto lg:mx-0 leading-relaxed space-y-1 mb-6">
               <p className="font-medium text-[#1d1d1f]">Product Builder</p>
               <p>Scaling products at Amazon</p>
               <p>Exploring the latest in AI</p>
             </div>
+
+            {/* Resume Link */}
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[#6e6e73] hover:text-[#1d1d1f] transition-colors group mx-auto lg:mx-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <span className="relative text-sm font-medium">
+                View Resume
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#1d1d1f] transition-all duration-300 group-hover:w-full" />
+              </span>
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </motion.a>
           </motion.div>
         </div>
       </div>
