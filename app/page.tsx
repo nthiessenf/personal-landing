@@ -31,11 +31,6 @@ export default function Home() {
     { name: "Apple", href: "https://podcasts.apple.com/us/podcast/gist/id1869418127", icon: <Podcast className="w-4 h-4" /> },
   ];
 
-  const lifttrackLinks = [
-    { name: "TestFlight", href: "https://testflight.apple.com/join/kaB6bdcu", icon: <Smartphone className="w-4 h-4" /> },
-    { name: "GitHub", href: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
-  ];
-
   return (
     <div className="relative min-h-screen flex flex-col">
       <main className="relative z-10 flex-1">
@@ -48,33 +43,36 @@ export default function Home() {
             <SectionTitle>What I'm Building.</SectionTitle>
             
             {/* FrugalScan - Featured Project */}
-            <BentoCard delay={0.1} className="w-full mb-5">
+            <div className="w-full mb-5">
               <ProjectCard
                 title="FrugalScan"
                 description="AI-powered spending insights from your bank statements. Upload a PDF, get personalized analysis in 60 seconds—no account linking required. Built with Next.js, Claude API, and Recharts."
-                icon={<DollarSign className="w-full h-full" />}
+                icon={<DollarSign className="w-5 h-5" />}
                 videoUrl="/videos/frugalscan-demo.mp4"
                 videoThumbnail="/images/frugalscan-thumbnail.png"
                 links={[
-                  { name: "Demo", href: "#watch-demo", icon: <Play className="w-4 h-4" /> },
-                  { name: "Try It Now", href: "https://frugalscan.com", icon: <></> },
-                  { name: "GitHub", href: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
+                  { label: "Demo", url: "#watch-demo", icon: <Play className="w-4 h-4" /> },
+                  { label: "Try It Now", url: "https://frugalscan.com", icon: <DollarSign className="w-4 h-4" /> },
+                  { label: "GitHub", url: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
                 ]}
                 href="https://frugalscan.com"
               />
-            </BentoCard>
+            </div>
 
             {/* LiftTrack */}
-            <BentoCard delay={0.2} className="w-full">
+            <div className="w-full">
               <ProjectCard
                 title="LiftTrack"
                 description="An iOS local-first workout tracking app built with React Native. Features weekly goals, progress monitoring, and routine management to help you stay consistent."
-                icon={<Dumbbell className="w-full h-full" />}
-                videoThumbnail="/images/lifttrack-dual-screenshot.png"
-                links={lifttrackLinks}
+                icon={<Dumbbell className="w-5 h-5" />}
+                image="/images/lifttrack-dual-screenshot.png"
+                links={[
+                  { label: "TestFlight", url: "https://testflight.apple.com/join/kaB6bdcu", icon: <Smartphone className="w-4 h-4" /> },
+                  { label: "GitHub", url: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
+                ]}
                 href="https://testflight.apple.com/join/kaB6bdcu"
               />
-            </BentoCard>
+            </div>
           </section>
 
           {/* What I'm Sharing Section */}
@@ -103,7 +101,7 @@ export default function Home() {
                     "The Origins of Efficiency — Brian Potter",
                     "Lenny's Newsletter — Lenny Rachitsky",
                   ]}
-                  icon={<BookOpen className="w-full h-full" />}
+                  icon={<BookOpen className="w-5 h-5" />}
                 />
               </BentoCard>
 
@@ -115,7 +113,7 @@ export default function Home() {
                     "Surfing — planning my next trip to Indonesia",
                     "Gym — staying young, one rep at a time",
                   ]}
-                  icon={<Activity className="w-full h-full" />}
+                  icon={<Activity className="w-5 h-5" />}
                 />
               </BentoCard>
             </div>
