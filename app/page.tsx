@@ -57,7 +57,7 @@ export default function Home() {
                 videoThumbnail="/images/frugalscan-thumbnail.png"
                 links={[
                   { name: "Demo", href: "#watch-demo", icon: <Play className="w-4 h-4" /> },
-                  { name: "Try It Now", href: "https://frugalscan.com", icon: <DollarSign className="w-4 h-4" /> },
+                  { name: "Try It Now", href: "https://frugalscan.com", icon: <></> },
                   { name: "GitHub", href: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
                 ]}
                 href="https://frugalscan.com"
