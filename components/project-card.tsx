@@ -56,7 +56,7 @@ export function ProjectCard({
         <div className="relative z-10 h-full flex flex-col sm:flex-row gap-6">
           {(image || videoThumbnail) && (
             <div 
-              className="flex-shrink-0 w-[180px] h-[180px] rounded-2xl overflow-hidden mx-auto sm:mx-0 relative cursor-pointer"
+              className="flex-shrink-0 w-full sm:w-[320px] aspect-video rounded-2xl overflow-hidden relative cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
                 if (videoUrl) setIsVideoModalOpen(true);
@@ -65,8 +65,8 @@ export function ProjectCard({
               <Image
                 src={videoThumbnail || image || ''}
                 alt={title}
-                width={180}
-                height={180}
+                width={280}
+                height={158}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               
