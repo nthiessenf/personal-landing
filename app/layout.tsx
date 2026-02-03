@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Your Name - Portfolio",
-  description: "Builder, creator, and storyteller crafting experiences at the intersection of design and technology.",
+  title: 'Nikolas Thiessen',
+  description: 'Product Engineer building at Amazon, exploring AI',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
