@@ -58,7 +58,7 @@ export function Hero() {
               <p>Exploring the latest in AI</p>
             </div>
 
-            {/* Resume Link */}
+            {/* TEMPORARILY HIDDEN - Resume Link
             <motion.a
               href="/resume.pdf"
               target="_blank"
@@ -74,6 +74,7 @@ export function Hero() {
               </span>
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </motion.a>
+            */}
           </motion.div>
         </div>
       </div>
