@@ -7,7 +7,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ContentCard } from "@/components/content-card";
 import { InterestCard } from "@/components/interest-card";
 import { Footer } from "@/components/footer";
-import { Dumbbell, BookOpen, Activity, Mail, Headphones, Youtube, Podcast, Github, Smartphone, Play, DollarSign } from "lucide-react";
+import { Dumbbell, BookOpen, Activity, Mail, Headphones, Podcast, Github, Smartphone, Play, DollarSign } from "lucide-react";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -27,7 +27,6 @@ export default function Home() {
   const newsletterPlatforms = [
     { name: "Read Now", href: "https://www.gist-newsletter.com", icon: <Mail className="w-4 h-4" /> },
     { name: "Spotify", href: "https://open.spotify.com/show/0r6kYx2AC8yYwwygyi0R2G?si=mIsLYI5OQIW1qoIs27gGpA", icon: <Headphones className="w-4 h-4" /> },
-    { name: "YouTube", href: "https://youtube.com/@gist-tech-newsletter?si=QpeEWIpQRz-SMBrH", icon: <Youtube className="w-4 h-4" /> },
     { name: "Apple", href: "https://podcasts.apple.com/us/podcast/gist/id1869418127", icon: <Podcast className="w-4 h-4" /> },
   ];
 
