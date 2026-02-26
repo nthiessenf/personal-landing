@@ -54,7 +54,7 @@ export function Hero() {
             </h1>
             <div className="text-base sm:text-lg lg:text-xl text-[#6e6e73] font-normal max-w-md mx-auto lg:mx-0 leading-relaxed space-y-1 mb-6">
               <p className="font-medium text-[#1d1d1f]">Product Builder</p>
-              <p>Scaling products at Amazon</p>
+              <p>Currently scaling products at Amazon</p>
               <p>Exploring the latest in AI</p>
             </div>
 
