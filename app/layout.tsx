@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: 'Nikolas Thiessen',
-  description: 'Product Engineer building at Amazon, exploring AI',
+  description: 'Product Engineer building at Tesla, exploring AI',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',

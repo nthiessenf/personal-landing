@@ -1,7 +1,7 @@
 # Personal Landing Page - Project Summary
 
 ## Owner
-**Nikolas Thiessen** - Product Engineer at Amazon
+**Nikolas Thiessen** - Product Engineer at Tesla
 
 ## Live Site
 **https://niko-thiessen.com**
@@ -62,7 +62,7 @@ PersonalLanding/
 ┌─────────────────────────────────────────────────────────────┐
 │  [Photo]    Nikolas Thiessen                                │
 │             Product Engineer                                │
-│             Building products at Amazon                     │
+│             Building products at Tesla                     │
 │             Exploring the latest in AI                      │
 └─────────────────────────────────────────────────────────────┘
 
@@ -103,7 +103,7 @@ What I'm Into.
 ### Hero Section
 - **Name:** Nikolas Thiessen
 - **Title:** Product Builder
-- **Line 2:** Scaling products at Amazon
+- **Line 2:** Scaling products at Tesla
 - **Line 3:** Exploring the latest in AI
 - **Photo:** `/images/headshot.png`
 - **Resume Link:** `/resume.pdf` (opens in new tab, appears below bio)

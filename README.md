@@ -270,7 +270,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📬 Contact
 
 **Nikolas Thiessen**  
-Product Engineer at Amazon
+Product Engineer at Tesla
 
 - GitHub: [@nthiessenf](https://github.com/nthiessenf)
 - LinkedIn: [/in/nthiessen](https://www.linkedin.com/in/nthiessen/)
