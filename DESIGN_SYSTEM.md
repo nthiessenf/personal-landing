@@ -37,18 +37,29 @@ on hover. Links never change color; that keeps the page one warm value.
 Two faces, loaded via `next/font` in `app/layout.tsx` (self-hosted, no runtime
 Google Fonts request):
 
-- **Newsreader** (`--font-serif`) — everything editorial: name, prose, section
-  labels, project and book titles.
-- **Inter** (`--font-sans`) — utility only: buttons, filter chips, meta, the
-  footer. A serif at 12–13px on a control goes mushy; this is the one place the
-  serif-throughout idea breaks.
+- **Newsreader** (`--font-serif`) — everything editorial: name, prose, project
+  and book titles.
+- **Inter** (`--font-sans`) — section labels, plus utility text: buttons, filter
+  chips, meta, the footer. A serif at 12–13px on a control goes mushy.
+
+**Sans marks structure, serif marks content.** That two-tier split is the point
+of using two faces at all, and it's worth protecting when adding anything new.
 
 **Nothing is bold.** `globals.css` resets `h1`–`h6` to weight 400. Hierarchy comes
 from size, italic, `ink-soft`/`ink-faint`, and whitespace. If you find yourself
 reaching for `font-semibold`, the fix is almost always more space or a lighter ink.
 
-Base metrics: 18.5px / 1.72. Name 40px. Section labels 20px italic in full ink
-(`h2`). Project and Gist titles 22px.
+Base metrics: 18.5px / 1.72. Name 40px serif. Project and Gist titles 22px serif.
+
+**Section labels** (`h2`) are Inter, 13px, uppercase, `0.12em` tracking, in the
+accent. They were serif italic at 20px in full ink and got lost — that sits in
+the same visual register as the prose beneath it, so sections were findable only
+by reading them.
+
+Don't grow them past 13px: at 15px they compete with the 22px serif item titles
+and the two tiers blur. Tracking eases off as size grows — wide letterspacing
+helps a small cap read as a label, but past a point it stops letters grouping
+into words. `0.12em` is tuned to 13px.
 
 **Measure.** Prose is uncapped and runs the full column, so its right edge lines
 up with the images and the book grid. The column itself is sized to make that
@@ -154,38 +165,31 @@ The wordmark is hidden on the landing page: it does two jobs, identity and a lin
 home, and both are redundant there (you're already home, and the intro names you
 at 40px right below). See the Headings note in `CODE_ARCHITECTURE.md`.
 
-## Parked: the sans/eyebrow alternative
+## Parked: sans body copy
 
-An alternative treatment, explored and set aside — **not rejected**, worth
-revisiting. It swaps the page from one voice to two:
-
-- **Body** in Inter at 16.5px / 1.65 (`ink-soft`), instead of Newsreader at
-  18.5px / 1.72.
-- **Section labels** as eyebrows: Inter, 11px, `letter-spacing: 0.14em`,
-  uppercase, in the accent, ~22px below.
-- **Item titles** (FrugalScan, Gist) stay Newsreader at 22px.
-
-That last part is the real idea, and it survives independently of the rest: sans
-marks *structure*, serif marks *content*. The current design uses serif for both
-levels and separates them only by size and italic, which is the weakest hierarchy
-on the page.
-
-To try it, override in `Section` and the body components:
+The eyebrow labels above came out of a larger alternative. **The other half is
+still parked:** body copy in Inter at 16.5px / 1.65 (`ink-soft`) instead of
+Newsreader at 18.5px / 1.72.
 
 ```css
-h2 { font-family: var(--font-sans); font-size: 11px; font-style: normal;
-     letter-spacing: 0.14em; text-transform: uppercase; color: #9c5a3c;
-     line-height: 1; margin-bottom: 22px; }
 p, li { font-family: var(--font-sans); font-size: 16.5px; line-height: 1.65; }
-h3 { font-family: var(--font-serif); font-size: 22px; }
 ```
 
-**Two things to weigh before adopting it.** With a grey sans body, an accent
-label becomes the loudest thing on screen — the eye goes to "BACKGROUND" rather
-than to the work. A muted-ink label with a hairline rule running to the right
-edge tested better, and leaves the accent doing one job (links). And the page's
-one distinctive quality is that it reads like a printed document; a single voice
-throughout is most of that.
+It tested well — crisper, denser, and better at small sizes than serif is (the
+Gist issue list is the weakest type on the page today). It was set aside because
+the page's one distinctive quality is that it reads like a printed document, and
+a serif body is most of that.
+
+**Two things to weigh if you revisit it.** With a grey sans body the accent label
+becomes the loudest thing on screen, and the eye goes to "BACKGROUND" rather than
+to the work — a muted-ink label with a hairline rule running to the right edge
+tested better in that combination. And applying sans to headings *as well*, so
+nothing is serif, loses the warmth entirely and lands close to a generic modern
+personal site.
+
+Also rejected: putting the name in the eyebrow treatment. At 26px uppercase
+accent it reads as a label for the page rather than a person, and it makes the
+name compete with the section labels for the same colour.
 
 ## Motion
 
