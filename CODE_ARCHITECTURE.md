@@ -5,7 +5,7 @@
 The landing page is a single column of labelled sections, in this order:
 
 ```
-SiteHeader          nav only on the landing page; name + nav in one row elsewhere
+SiteHeader          About / Projects / Bookshelf — nav only on the landing page
 Intro               headshot, name (the page h1), three sentences
 Background          one paragraph: ops → product, global teams
 Projects            FrugalScan + Gist
@@ -64,7 +64,7 @@ unreferenced.
 
 | Component | Role |
 |---|---|
-| `site-header.tsx` | Nav on every page; name only off the landing page. Exists mainly so `/bookshelf` is reachable from anywhere; it used to be enterable only via the reading teaser. `Writing` is a `/#writing` anchor — there's no `/writing` route yet. |
+| `site-header.tsx` | Nav on every page; name only off the landing page. `Projects` is a `/#projects` anchor onto the landing section, not its own route. Exists mainly so `/bookshelf` is reachable from anywhere; it used to be enterable only via the reading teaser. `Writing` is a `/#writing` anchor — there's no `/writing` route yet. |
 | `intro.tsx` | Headshot, name, three sentences. **Copy is a draft** — it's the most-read text on the page. |
 | `section.tsx` | Italic label + content. No card, no border. Takes an optional `id` for anchoring. |
 | `link-list.tsx` | The `Currently` and `Elsewhere` rows: a link plus a plain-language note. `href` is optional — a row without one is a statement. Uses flex so a wrapped note hangs under the label, not under the bullet. |
@@ -73,7 +73,7 @@ unreferenced.
 | `video-lightbox.tsx` | The demo overlay. Shared so it can be opened from an image or a plain text link without two copies. |
 | `demo-link.tsx` | Opens the demo from a text link, for layouts with no thumbnail to click. |
 | `writing.tsx` | Gist, with recent issue titles. **`RECENT_ISSUES` is hand-maintained** — see below. |
-| `reading-teaser.tsx` | Landing-page entry to `/bookshelf`: a one-line intro, then a hairline box holding recent covers and a "View all" link. The cover grid is one link; books are decorative here and become individually clickable on the shelf, where the modal exists to receive the click. The book count reads from `books.length`, so it can't drift. |
+| `reading-teaser.tsx` | Landing-page entry to `/bookshelf`: a one-line intro, then a hairline box holding recent covers and a "View all" link. The cover grid is one link; books are decorative here and become individually clickable on the shelf, where the modal exists to receive the click. |
 | `footer.tsx` | Just the last-updated line. **`LAST_UPDATED` is hand-maintained.** |
 
 ### Headings
@@ -103,8 +103,9 @@ text comes from size, italic, and the space above.
 
 `Building` and `Writing` were separate headings until each was down to one item,
 at which point they were scaffolding rather than structure. One label now covers
-both. The header's *Writing* nav item anchors to `#writing` on the Gist block
-inside the section — keep that id if you rename anything.
+both. The header's *Projects* nav item anchors to `#projects` on the section itself —
+keep that id if you rename the section. `Section` carries its own `scroll-mt`, so
+the heading isn't flush against the viewport top on arrival.
 
 `Other hobbies` sits below `Reading` and is named "other" because reading is a
 hobby too; the section is the rest of them.

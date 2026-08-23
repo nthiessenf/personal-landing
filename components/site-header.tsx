@@ -11,15 +11,20 @@ import Link from "next/link";
  * Exists mainly so /bookshelf is reachable from anywhere; it used to be a dead
  * end you could only enter through the reading teaser.
  *
- * "Writing" is an anchor onto the Gist block rather than its own route.
+ * "Projects" is an anchor onto the landing page's Projects section rather than
+ * its own route; `Section` carries the matching id and its own scroll-margin.
  */
 const NAV = [
   { label: "About", href: "/" },
-  { label: "Writing", href: "/#writing" },
-  { label: "Books", href: "/bookshelf" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Bookshelf", href: "/bookshelf" },
 ];
 
-export function SiteHeader({ active }: { active?: "About" | "Writing" | "Books" }) {
+export function SiteHeader({
+  active,
+}: {
+  active?: "About" | "Projects" | "Bookshelf";
+}) {
   const isHome = active === "About";
 
   const nav = (

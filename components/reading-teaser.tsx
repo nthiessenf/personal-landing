@@ -12,7 +12,6 @@ import { Book3D } from "./book-3d";
  * not a card — no fill, no shadow, no hover lift — just a rule marking off a
  * self-contained thing that continues on another page.
  *
- * The count comes from the data, so it can't drift out of date.
  */
 export function ReadingTeaser() {
   // Prefer what's in progress; fall back to most recently finished so the block
@@ -25,8 +24,8 @@ export function ReadingTeaser() {
   return (
     <>
       <p className="mb-6 text-ink-soft">
-        A running list of what I&apos;ve read, kept mostly for my own memory.{" "}
-        {books.length} books so far.
+        A curated list of what I&apos;ve read, focusing on the ones I&apos;ve
+        enjoyed or recommended the most.
       </p>
 
       <div className="rounded-md border border-rule p-5 sm:p-7">

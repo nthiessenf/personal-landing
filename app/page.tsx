@@ -58,7 +58,7 @@ export default function Home() {
         {/* `Building` and `Writing` used to be separate headings; each held one
             item, which made the heading scaffolding rather than structure. One
             label covers both — a newsletter is a project too. */}
-        <Section label="Projects">
+        <Section label="Projects" id="projects">
           <div className="grid gap-12">
             <Project
               title="FrugalScan"
@@ -78,10 +78,7 @@ export default function Home() {
                 { label: "GitHub", url: "https://github.com/nthiessenf" },
               ]}
             />
-            {/* The header's "Writing" nav item anchors here. */}
-            <div id="writing" className="scroll-mt-8">
-              <Writing />
-            </div>
+            <Writing />
           </div>
         </Section>
 

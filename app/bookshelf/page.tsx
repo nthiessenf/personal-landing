@@ -14,7 +14,7 @@ export default function BookshelfPage() {
     // Wider than the landing page's max-w-2xl: a five-column cover grid needs
     // more room than a column of text.
     <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 sm:px-8">
-      <SiteHeader active="Books" />
+      <SiteHeader active="Bookshelf" />
 
       <main className="flex-1">
         <h1 className="text-[40px] leading-tight tracking-[-0.01em] text-ink">Bookshelf</h1>
