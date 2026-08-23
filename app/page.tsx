@@ -6,8 +6,9 @@ import { BentoCard } from "@/components/bento-grid";
 import { ProjectCard } from "@/components/project-card";
 import { ContentCard } from "@/components/content-card";
 import { InterestCard } from "@/components/interest-card";
+import { ReadingTeaser } from "@/components/reading-teaser";
 import { Footer } from "@/components/footer";
-import { Dumbbell, BookOpen, Activity, Mail, Headphones, Podcast, Github, Smartphone, Play, DollarSign } from "lucide-react";
+import { Dumbbell, Activity, Mail, Headphones, Podcast, Github, Smartphone, Play, DollarSign } from "lucide-react";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -88,23 +89,19 @@ export default function Home() {
             </BentoCard>
           </section>
 
+          {/* What I'm Reading Section */}
+          <section className="py-10">
+            <SectionTitle>What I&apos;m Reading.</SectionTitle>
+            <BentoCard delay={0.1} className="w-full">
+              <ReadingTeaser />
+            </BentoCard>
+          </section>
+
           {/* What I'm Into Section */}
           <section className="py-10 pb-20">
             <SectionTitle>What I'm Into.</SectionTitle>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 gap-5">
               <BentoCard delay={0.1}>
-                <InterestCard
-                  title="Currently Reading"
-                  items={[
-                    "The Will of The Many — James Islington",
-                    "The Origins of Efficiency — Brian Potter",
-                    "Lenny's Newsletter — Lenny Rachitsky",
-                  ]}
-                  icon={<BookOpen className="w-5 h-5" />}
-                />
-              </BentoCard>
-
-              <BentoCard delay={0.2}>
                 <InterestCard
                   title="Active Life"
                   items={[
