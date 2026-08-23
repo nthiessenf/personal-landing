@@ -11,10 +11,6 @@ import Link from "next/link";
  * Exists mainly so /bookshelf is reachable from anywhere; it used to be a dead
  * end you could only enter through the reading teaser.
  *
- * The whole header is centred, page content is not. On subpages that means the
- * wordmark centres too — a left-aligned name over a centred nav reads as a
- * mistake rather than a choice.
- *
  * "Writing" is an anchor onto the Gist block rather than its own route.
  */
 const NAV = [
@@ -26,29 +22,43 @@ const NAV = [
 export function SiteHeader({ active }: { active?: "About" | "Writing" | "Books" }) {
   const isHome = active === "About";
 
+  const nav = (
+    <nav className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-[17px]">
+      {NAV.map(({ label, href }) => (
+        <Link
+          key={label}
+          href={href}
+          className={
+            label === active
+              ? "text-ink underline decoration-1 underline-offset-4 decoration-[rgba(156,90,60,0.45)] hover:decoration-accent"
+              : "no-underline text-ink-soft transition-colors hover:text-ink"
+          }
+        >
+          {label}
+        </Link>
+      ))}
+    </nav>
+  );
+
+  if (isHome) {
+    return <header className="pt-12 pb-10">{nav}</header>;
+  }
+
   return (
-    <header className={isHome ? "pt-12 pb-10" : "pt-12 pb-14"}>
-      {!isHome && (
-        <Link href="/" className="no-underline mx-auto mb-3 block w-fit text-2xl leading-tight text-ink">
+    <header className="pt-12 pb-14">
+      {/* One row on desktop: name left, nav optically centred in the column.
+          The 1fr/auto/1fr grid centres the nav against the container rather
+          than against the leftover space, so it doesn't drift as the name's
+          width changes. Stacks on mobile, where both don't fit on a line. */}
+      <div className="flex flex-col items-center gap-3 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-baseline sm:gap-0">
+        <Link
+          href="/"
+          className="no-underline block w-fit text-2xl leading-tight text-ink sm:justify-self-start"
+        >
           Nikolas Thiessen
         </Link>
-      )}
-
-      <nav className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-[17px]">
-        {NAV.map(({ label, href }) => (
-          <Link
-            key={label}
-            href={href}
-            className={
-              label === active
-                ? "text-ink underline decoration-1 underline-offset-4 decoration-[rgba(156,90,60,0.45)] hover:decoration-accent"
-                : "no-underline text-ink-soft transition-colors hover:text-ink"
-            }
-          >
-            {label}
-          </Link>
-        ))}
-      </nav>
+        {nav}
+      </div>
     </header>
   );
 }

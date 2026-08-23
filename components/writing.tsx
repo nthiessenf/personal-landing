@@ -13,7 +13,9 @@ import Image from "next/image";
  * beehiiv, which can expose an RSS feed (Settings → Publication → RSS); enable
  * it and this list could be fetched at build time instead.
  *
- * Titles are the published ones, taken from each post's og:title.
+ * Titles are display labels, not necessarily the full published headline —
+ * budget is roughly 48 characters, past which they wrap to a second line and
+ * break the rhythm of the list. Trim the subtitle rather than let it wrap.
  */
 const RECENT_ISSUES: { title: string; href: string }[] = [
   {
@@ -21,7 +23,7 @@ const RECENT_ISSUES: { title: string; href: string }[] = [
     href: "https://www.gist-newsletter.com/p/how-chatgpt-actually-works-no-phd-required",
   },
   {
-    title: "The Thinking Partner: How Executives Are Actually Using AI",
+    title: "The Thinking Partner: How Executives Use AI",
     href: "https://www.gist-newsletter.com/p/the-thinking-partner",
   },
   {

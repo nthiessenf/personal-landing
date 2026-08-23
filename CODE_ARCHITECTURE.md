@@ -5,7 +5,7 @@
 The landing page is a single column of labelled sections, in this order:
 
 ```
-SiteHeader          nav only on the landing page; name + nav elsewhere
+SiteHeader          nav only on the landing page; name + nav in one row elsewhere
 Intro               headshot, name (the page h1), three sentences
 Background          one paragraph: ops → product, global teams
 Projects            FrugalScan + Gist
@@ -88,6 +88,12 @@ page gets the wordmark back, where it earns both jobs, and supplies its own `h1`
 below it (`Bookshelf`).
 
 If you add a page, give it an `h1` — the header won't provide one.
+
+On subpages the header is a single row: name left, nav centred, via a
+`1fr / auto / 1fr` grid. The grid matters — it centres the nav against the
+container rather than against the space left over beside the name, so the nav
+doesn't drift if the name's width changes. It stacks below `sm`, where the two
+don't fit on one line.
 
 Section labels are `h2`: 20px, italic, full-strength ink. Weight isn't available
 as a lever here — nothing on this site is bold — so their separation from body
