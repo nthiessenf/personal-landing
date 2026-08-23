@@ -21,7 +21,7 @@ function Stars({ rating }: { rating: number }) {
         <Star
           key={n}
           className={`h-3.5 w-3.5 ${
-            n <= rating ? "fill-[#1d1d1f] text-[#1d1d1f]" : "fill-transparent text-black/20"
+            n <= rating ? "fill-ink text-ink" : "fill-transparent text-ink-faint"
           }`}
         />
       ))}
@@ -67,14 +67,14 @@ export function BookModal({ books, index, onClose, onNavigate }: BookModalProps)
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-6 backdrop-blur-sm"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-ink/60 p-6 backdrop-blur-sm"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={book.title}
     >
       <div
-        className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-black/[0.04] bg-white/90 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.18)] backdrop-blur-xl"
+        className="relative w-full max-w-2xl overflow-hidden rounded-xl border border-rule bg-paper p-8 shadow-[0_20px_50px_rgba(43,37,33,0.22)]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-6 flex items-center justify-between">
@@ -83,7 +83,7 @@ export function BookModal({ books, index, onClose, onNavigate }: BookModalProps)
               type="button"
               onClick={goPrev}
               aria-label="Previous book"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-[#6e6e73] transition-colors duration-300 hover:bg-black/[0.04] hover:text-[#1d1d1f]"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-ink-soft transition-colors duration-300 hover:bg-[rgba(43,37,33,0.06)] hover:text-ink"
             >
               <ArrowLeft className="h-4 w-4" />
             </button>
@@ -91,7 +91,7 @@ export function BookModal({ books, index, onClose, onNavigate }: BookModalProps)
               type="button"
               onClick={goNext}
               aria-label="Next book"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-[#6e6e73] transition-colors duration-300 hover:bg-black/[0.04] hover:text-[#1d1d1f]"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-ink-soft transition-colors duration-300 hover:bg-[rgba(43,37,33,0.06)] hover:text-ink"
             >
               <ArrowRight className="h-4 w-4" />
             </button>
@@ -100,7 +100,7 @@ export function BookModal({ books, index, onClose, onNavigate }: BookModalProps)
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="flex h-9 w-9 items-center justify-center rounded-full text-[#6e6e73] transition-colors duration-300 hover:bg-black/[0.04] hover:text-[#1d1d1f]"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-ink-soft transition-colors duration-300 hover:bg-[rgba(43,37,33,0.06)] hover:text-ink"
           >
             <X className="h-4 w-4" />
           </button>
@@ -112,18 +112,18 @@ export function BookModal({ books, index, onClose, onNavigate }: BookModalProps)
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="text-sm text-[#6e6e73]">{book.author}</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-[-0.01em] text-[#1d1d1f]">
+            <p className="text-[15px] text-ink-soft">{book.author}</p>
+            <h2 className="mt-1 text-2xl tracking-[-0.01em] text-ink">
               {book.title}
             </h2>
 
-            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-[#86868b]">
+            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-sans text-[12px] text-ink-faint">
               {book.rating !== undefined && <Stars rating={book.rating} />}
               {meta.map((m) => (
                 <span key={m}>{m}</span>
               ))}
               {book.status === "reading" && (
-                <span className="rounded-full bg-black/[0.05] px-2.5 py-1 text-[12px] font-medium text-[#1d1d1f]">
+                <span className="rounded-full bg-[rgba(43,37,33,0.07)] px-2.5 py-1 font-sans text-[12px] text-ink">
                   Currently reading
                 </span>
               )}
@@ -132,7 +132,7 @@ export function BookModal({ books, index, onClose, onNavigate }: BookModalProps)
             {/* Most books start without a note. Omitting the block entirely beats
                 rendering an empty panel that makes the shelf look unfinished. */}
             {book.note && (
-              <p className="mt-5 text-[15px] leading-relaxed text-[#6e6e73]">{book.note}</p>
+              <p className="mt-5 leading-relaxed text-ink-soft">{book.note}</p>
             )}
           </div>
         </div>

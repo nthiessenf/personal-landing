@@ -10,37 +10,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#f5f5f7",
-        foreground: "#1d1d1f",
-        muted: "#86868b",
-        border: "rgba(29, 29, 31, 0.08)",
+        // Warm clay. `ink-soft`/`ink-faint` are the only hierarchy tools besides
+        // italic and whitespace — there is no bold anywhere in this design.
+        paper: "#f0e7dc",
+        "paper-deep": "#e7dccf",
+        ink: "#2b2521",
+        "ink-soft": "rgba(43, 37, 33, 0.65)",
+        "ink-faint": "rgba(43, 37, 33, 0.35)",
+        accent: "#9c5a3c",
+        rule: "rgba(43, 37, 33, 0.14)",
+        // Aliases kept so any straggling `border-border` / `bg-background` resolves.
+        background: "#f0e7dc",
+        foreground: "#2b2521",
+        muted: "rgba(43, 37, 33, 0.65)",
+        border: "rgba(43, 37, 33, 0.14)",
       },
       fontFamily: {
-        sans: ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Inter", "sans-serif"],
-      },
-      animation: {
-        "float": "float 6s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
-        "gradient-shift": "gradient-shift 20s ease infinite",
-        "shimmer": "shimmer 3s infinite",
-      },
-      keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px) scale(1)" },
-          "50%": { transform: "translateY(-10px) scale(1.02)" },
-        },
-        "pulse-glow": {
-          "0%, 100%": { opacity: "0.3" },
-          "50%": { opacity: "0.5" },
-        },
-        "gradient-shift": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.7" },
-        },
-        shimmer: {
-          "0%": { transform: "translateX(-100%) translateY(-100%) rotate(45deg)" },
-          "100%": { transform: "translateX(100%) translateY(100%) rotate(45deg)" },
-        },
+        serif: ["var(--font-serif)", "Georgia", "Times New Roman", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
     },
   },

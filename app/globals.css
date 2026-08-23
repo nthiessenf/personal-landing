@@ -4,86 +4,47 @@
 
 @layer base {
   * {
-    border-color: rgba(29, 29, 31, 0.08);
+    border-color: rgba(43, 37, 33, 0.14);
   }
-  
+
   body {
-    background-color: #f5f5f7;
-    color: #1d1d1f;
+    background-color: #f0e7dc;
+    color: #2b2521;
+    font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+    font-size: 18.5px;
+    line-height: 1.72;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
     overflow-x: hidden;
   }
-}
 
-@layer components {
-  .background-gradient {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(ellipse 80% 50% at 20% 30%, rgba(147, 197, 253, 0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 70%, rgba(251, 207, 232, 0.10) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 50% at 50% 50%, rgba(196, 181, 253, 0.08) 0%, transparent 50%);
-    z-index: 0;
-    pointer-events: none;
-    animation: gradient-breathe 15s ease-in-out infinite;
+  /* Nothing in this design is bold. Rank comes from italic, opacity, size and
+     whitespace — the browser's default `bold` on h1-h6 would break that. */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
   }
-}
 
-@keyframes gradient-breathe {
-  0%, 100% { 
-    opacity: 1; 
-    transform: scale(1); 
+  /* Underlines sit in the accent at low opacity and darken on hover, rather
+     than links changing color. Keeps the page one warm value throughout. */
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(156, 90, 60, 0.45);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 160ms ease;
   }
-  50% { 
-    opacity: 0.8; 
-    transform: scale(1.02); 
-  }
-}
 
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px); 
+  a:hover {
+    text-decoration-color: rgba(156, 90, 60, 1);
   }
-  50% { 
-    transform: translateY(-12px); 
-  }
-}
 
-@keyframes pulse-glow {
-  0%, 100% { 
-    opacity: 0.35; 
-    transform: scale(1); 
+  /* Opt-out for links that are whole blocks (cards, book covers, nav) where an
+     underline would be noise. */
+  a.no-underline,
+  a.no-underline:hover {
+    text-decoration: none;
   }
-  50% { 
-    opacity: 0.5; 
-    transform: scale(1.05); 
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  animation: shimmer 2.5s infinite;
 }
 
 /* ------------------------------------------------------------------ */
@@ -101,8 +62,8 @@
 /*   .b-light       sheen that swings with the cover                  */
 /*                                                                     */
 /* Kept as plain CSS rather than Tailwind arbitrary values: eight      */
-/* nested layers with multi-part transforms is the same case           */
-/* .background-gradient above is already handled this way.             */
+/* nested layers each carrying multi-part transforms is well past what */
+/* arbitrary-value classes stay readable for.                          */
 /* ------------------------------------------------------------------ */
 
 .book-scene {
@@ -148,8 +109,9 @@
   right: 0;
   width: 98%;
   height: 100%;
-  /* Warm off-white to sit with the page's #f5f5f7 rather than glare against it. */
-  background: #f7f4ee;
+  /* Warm off-white, a touch lighter than the #f0e7dc page so leaves read as
+     paper rather than dissolving into the background. */
+  background: #fbf7f0;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 0 6px 6px 0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
@@ -169,7 +131,7 @@
   /* Neutral fill so a cover that hasn't lazy-loaded yet reads as "loading"
      rather than showing the cream page layers through, which looks like a
      blank book. The <img> paints over this once it arrives. */
-  background: #e6e6ea;
+  background: #ded3c6;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 8px 14px rgba(0, 0, 0, 0.06);
   transform: perspective(2000px) translateX(0) rotateY(0deg) scaleX(1);
   transform-origin: left center;
@@ -221,9 +183,10 @@
   .book-scene:hover .b-image {
     transform: perspective(2000px) translateX(calc(var(--bw) * -0.027)) rotateY(-12deg)
       scaleX(0.96);
-    /* Blue-tinted like BentoCard's hover shadow, rather than neutral black. */
+    /* Warmed into the clay accent rather than neutral black, so the lifted
+       cover still reads as sitting on this page. */
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.18), 20px 20px 40px rgba(0, 0, 0, 0.14),
-      40px 40px 60px rgba(147, 197, 253, 0.22);
+      40px 40px 60px rgba(156, 90, 60, 0.20);
   }
 
   .book-scene:hover .b-light {

@@ -1,120 +1,103 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Hero } from "@/components/hero";
-import { BentoCard } from "@/components/bento-grid";
-import { ProjectCard } from "@/components/project-card";
-import { ContentCard } from "@/components/content-card";
-import { InterestCard } from "@/components/interest-card";
+import { SiteHeader } from "@/components/site-header";
+import { Intro } from "@/components/intro";
+import { Section } from "@/components/section";
+import { LinkList, type AnnotatedLink } from "@/components/link-list";
+import { Project } from "@/components/project";
+import { Writing } from "@/components/writing";
 import { ReadingTeaser } from "@/components/reading-teaser";
 import { Footer } from "@/components/footer";
-import { Dumbbell, Activity, Mail, Headphones, Podcast, Github, Smartphone, Play, DollarSign } from "lucide-react";
 
-function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.h2 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1d1d1f] tracking-[-0.02em] mb-6"
-    >
-      {children}
-    </motion.h2>
-  );
-}
+/**
+ * The page's one structural rule: nothing is described twice. The intro says
+ * what I am, where I've lived, and where I am now; Background covers how I got
+ * here; each section below is the only place its subject is explained.
+ *
+ * That rule is why there's no `Currently` section — it duplicated both the intro
+ * and the sections beneath it — and why hobbies sit in `Other hobbies` rather
+ * than in the intro paragraph.
+ *
+ * NOTE: the notes below are drafts. Rewrite them in your voice — especially the
+ * `Off the clock` ones, which name a specific competition and trip.
+ */
+const OFF_THE_CLOCK: AnnotatedLink[] = [
+  { label: "Jiu jitsu", note: "applying kaizen on the mats" },
+  { label: "Surfing", note: "planning the next trip to Indonesia" },
+  { label: "Gym", note: "training for longevity" },
+];
+
+const ELSEWHERE: AnnotatedLink[] = [
+  { label: "Email", href: "mailto:nthiessenf@gmail.com", note: "the best way to reach me" },
+  { label: "GitHub", href: "https://github.com/nthiessenf", note: "side projects, in varying states of finished" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/nthiessen/", note: "for work things" },
+];
 
 export default function Home() {
-  const newsletterPlatforms = [
-    { name: "Read Now", href: "https://www.gist-newsletter.com", icon: <Mail className="w-4 h-4" /> },
-    { name: "Spotify", href: "https://open.spotify.com/show/0r6kYx2AC8yYwwygyi0R2G?si=mIsLYI5OQIW1qoIs27gGpA", icon: <Headphones className="w-4 h-4" /> },
-    { name: "Apple", href: "https://podcasts.apple.com/us/podcast/gist/id1869418127", icon: <Podcast className="w-4 h-4" /> },
-  ];
-
   return (
-    <div className="relative min-h-screen flex flex-col">
-      <main className="relative z-10 flex-1">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8">
-          {/* Hero Section */}
-          <Hero />
+    <div className="mx-auto flex min-h-screen max-w-[42rem] flex-col px-6 sm:px-8"
+      // 200px media column: puts prose at ~75 characters instead of ~87, and
+      // measured out to cost nothing — identical line counts either way.
+      // 200px media column. Every image crops into a shared 3:2 slot, so the two
+      // entries read as siblings despite 1.75:1 and 1:1 sources.
+      style={{ ["--media-w" as string]: "200px" }}>
+      <SiteHeader active="About" />
 
-          {/* What I'm Building Section */}
-          <section className="py-10">
-            <SectionTitle>What I'm Building.</SectionTitle>
-            
-            {/* FrugalScan - Featured Project */}
-            <div className="w-full mb-5">
-              <ProjectCard
-                title="FrugalScan"
-                description="AI-powered spending insights from your bank statements. Upload a PDF, get personalized analysis in 60 seconds—no account linking required. Built with Next.js, Claude API, and Recharts."
-                icon={<DollarSign className="w-5 h-5" />}
-                videoUrl="/videos/frugalscan-demo.mp4"
-                videoThumbnail="/images/frugalscan-thumbnail.png"
-                links={[
-                  { label: "Demo", url: "#watch-demo", icon: <Play className="w-4 h-4" /> },
-                  { label: "Try It Now", url: "https://frugalscan.com", icon: <></> },
-                  { label: "GitHub", url: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
-                ]}
-                href="https://frugalscan.com"
-              />
+      <main className="flex-1">
+        <Intro />
+
+        {/* No company names here on purpose — the roles are the distinctive part,
+            and "led global ops teams across three continents" says more than a
+            logo does. Add them if you'd rather be concrete. */}
+        <Section label="Background">
+          <p className="text-ink-soft">
+            I worked in investment banking and then operations before moving
+            into product. I led ops teams out of Latin America, Europe, and
+            Asia, and now build for those same markets.
+          </p>
+        </Section>
+
+        {/* `Building` and `Writing` used to be separate headings; each held one
+            item, which made the heading scaffolding rather than structure. One
+            label covers both — a newsletter is a project too. */}
+        <Section label="Projects">
+          <div className="grid gap-12">
+            <Project
+              title="FrugalScan"
+              description="AI-powered spending insights from your bank statements. Upload a PDF, get personalized analysis in 60 seconds — no account linking."
+              videoUrl="/videos/frugalscan-demo.mp4"
+              images={[
+                {
+                  src: "/images/frugalscan-shot.png",
+                  alt: "The FrugalScan landing page",
+                  width: 2910,
+                  height: 1660,
+                },
+              ]}
+              links={[
+                { label: "Watch the demo", url: "#demo" },
+                { label: "Try it", url: "https://frugalscan.com" },
+                { label: "GitHub", url: "https://github.com/nthiessenf" },
+              ]}
+            />
+            {/* The header's "Writing" nav item anchors here. */}
+            <div id="writing" className="scroll-mt-8">
+              <Writing />
             </div>
+          </div>
+        </Section>
 
-            {/* LiftTrack */}
-            <div className="w-full">
-              <ProjectCard
-                title="LiftTrack"
-                description="An iOS local-first workout tracking app built with React Native. Features weekly goals, progress monitoring, and routine management to help you stay consistent."
-                icon={<Dumbbell className="w-5 h-5" />}
-                image="/images/lifttrack-dual-screenshot.png"
-                links={[
-                  { label: "TestFlight", url: "https://testflight.apple.com/join/kaB6bdcu", icon: <Smartphone className="w-4 h-4" /> },
-                  { label: "GitHub", url: "https://github.com/nthiessenf", icon: <Github className="w-4 h-4" /> },
-                ]}
-                href="https://testflight.apple.com/join/kaB6bdcu"
-              />
-            </div>
-          </section>
+        <Section label="Reading">
+          <ReadingTeaser />
+        </Section>
 
-          {/* What I'm Sharing Section */}
-          <section className="py-10">
-            <SectionTitle>What I'm Sharing.</SectionTitle>
-            <BentoCard delay={0.1} className="w-full">
-              <ContentCard
-                title="Gist | Weekly Newsletter"
-                description="Every week, one new trend or concept in frontier tech explained clearly—AI, chips, the forces reshaping the future. No jargon. No hype. So you're never the one nodding along."
-                platforms={newsletterPlatforms}
-                image="/images/gist-thumbnail.png"
-                href="https://www.gist-newsletter.com"
-              />
-            </BentoCard>
-          </section>
+        {/* "Other" because Reading, just above, is a hobby too — this is the
+            rest of them. */}
+        <Section label="Other hobbies">
+          <LinkList items={OFF_THE_CLOCK} />
+        </Section>
 
-          {/* What I'm Reading Section */}
-          <section className="py-10">
-            <SectionTitle>What I&apos;m Reading.</SectionTitle>
-            <BentoCard delay={0.1} className="w-full">
-              <ReadingTeaser />
-            </BentoCard>
-          </section>
-
-          {/* What I'm Into Section */}
-          <section className="py-10 pb-20">
-            <SectionTitle>What I'm Into.</SectionTitle>
-            <div className="grid grid-cols-1 gap-5">
-              <BentoCard delay={0.1}>
-                <InterestCard
-                  title="Active Life"
-                  items={[
-                    "Jiu Jitsu — training for my next competition",
-                    "Surfing — planning my next trip to Indonesia",
-                    "Gym — staying young, one rep at a time",
-                  ]}
-                  icon={<Activity className="w-5 h-5" />}
-                />
-              </BentoCard>
-            </div>
-          </section>
-        </div>
+        <Section label="Elsewhere">
+          <LinkList items={ELSEWHERE} />
+        </Section>
       </main>
 
       <Footer />

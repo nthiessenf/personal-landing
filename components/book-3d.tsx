@@ -51,13 +51,13 @@ export function Book3D({ book, width = 188, className, decorative = true }: Book
               }}
             >
               <span
-                className="line-clamp-4 font-semibold leading-snug text-[#1d1d1f]"
+                className="line-clamp-4 leading-snug text-ink"
                 style={{ fontSize: "clamp(8px, 6cqw, 13px)" }}
               >
                 {book.title}
               </span>
               <span
-                className="line-clamp-2 leading-tight text-[#1d1d1f]/70"
+                className="line-clamp-2 leading-tight text-ink-soft"
                 style={{ fontSize: "clamp(7px, 5cqw, 11px)" }}
               >
                 {book.author}

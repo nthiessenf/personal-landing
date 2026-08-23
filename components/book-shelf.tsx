@@ -38,10 +38,10 @@ export function BookShelf() {
               key={g}
               type="button"
               onClick={() => selectGenre(g)}
-              className={`rounded-full px-3.5 py-2 text-sm font-medium transition-all duration-300 ${
+              className={`rounded-full px-3.5 py-1.5 font-sans text-[13px] transition-colors duration-300 ${
                 genre === g
-                  ? "bg-[#1d1d1f] text-white"
-                  : "bg-black/[0.04] text-[#6e6e73] hover:bg-black/[0.07] hover:text-[#1d1d1f]"
+                  ? "bg-ink text-paper"
+                  : "bg-[rgba(43,37,33,0.06)] text-ink-soft hover:bg-[rgba(43,37,33,0.11)] hover:text-ink"
               }`}
             >
               {g}
@@ -50,7 +50,7 @@ export function BookShelf() {
         </div>
       )}
 
-      <p className="mb-8 text-sm text-[#86868b]">
+      <p className="mb-8 font-sans text-[13px] text-ink-faint">
         {visible.length} {visible.length === 1 ? "book" : "books"}
       </p>
 
