@@ -73,7 +73,7 @@ unreferenced.
 | `video-lightbox.tsx` | The demo overlay. Shared so it can be opened from an image or a plain text link without two copies. |
 | `demo-link.tsx` | Opens the demo from a text link, for layouts with no thumbnail to click. |
 | `writing.tsx` | Gist, with recent issue titles. **`RECENT_ISSUES` is hand-maintained** — see below. |
-| `reading-teaser.tsx` | Landing-page entry to `/bookshelf`. The cover grid is one link; books are decorative. |
+| `reading-teaser.tsx` | Landing-page entry to `/bookshelf`: a one-line intro, then a hairline box holding recent covers and a "View all" link. The cover grid is one link; books are decorative here and become individually clickable on the shelf, where the modal exists to receive the click. The book count reads from `books.length`, so it can't drift. |
 | `footer.tsx` | Just the last-updated line. **`LAST_UPDATED` is hand-maintained.** |
 
 ### Headings

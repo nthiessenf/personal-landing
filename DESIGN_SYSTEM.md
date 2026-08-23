@@ -7,9 +7,13 @@ blobs, glassmorphic bento cards, ambient motion) to something closer to a
 personal document. Reference point: minchi.co.
 
 **The rule that drives everything: form should not add chrome.** Text sits on the
-page background. Cards, glass, borders, hover-lift, and idle animation are all
-gone. The only framed elements are actual images — project screenshots and book
-covers.
+page background. Glass, fills, shadows, hover-lift, and idle animation are all
+gone. Framed elements are actual images — project screenshots and book covers.
+
+**One exception:** the Reading teaser sits in a hairline box. It's a rule, not a
+card — no fill, no shadow, no hover state — marking off a self-contained thing
+that continues on another page. If a second box ever appears, check it against
+that test first.
 
 ## Palette — warm clay
 
