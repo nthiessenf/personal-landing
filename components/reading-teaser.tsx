@@ -24,8 +24,8 @@ export function ReadingTeaser() {
   return (
     <>
       <p className="mb-6 text-ink-soft">
-        A curated list of what I&apos;ve read, focusing on the ones I&apos;ve
-        enjoyed or recommended the most.
+        What I&apos;m reading, what I&apos;ve recommended, and what stuck with
+        me.
       </p>
 
       <div className="rounded-md border border-rule p-5 sm:p-7">
