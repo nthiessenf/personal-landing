@@ -17,14 +17,15 @@ export default function BookshelfPage() {
       <SiteHeader active="Bookshelf" />
 
       <main className="flex-1">
-        {/* No subtitle: it lived here and on the landing teaser in near-identical
-            wording, and reading the same sentence twice within a click reads as a
-            templating error. The teaser keeps it, where it's the only thing
-            telling a visitor why to come here. On this page the heading, the
-            genre filters and the covers already say what it is. */}
         <h1 className="text-[40px] leading-tight tracking-[-0.01em] text-ink">Bookshelf</h1>
+        {/* Deliberately the same sentence as the landing teaser, not a variation:
+            two near-identical wordings read as a mistake, one repeated line reads
+            as the description of the thing. Change both together. */}
+        <p className="mt-4 max-w-[36rem] text-ink-soft">
+          What I&apos;m reading, what I&apos;ve recommended, and what stuck with me.
+        </p>
 
-        <div className="mt-10">
+        <div className="mt-12">
           <BookShelf />
         </div>
       </main>

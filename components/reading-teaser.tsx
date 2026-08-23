@@ -8,6 +8,10 @@ import { Book3D } from "./book-3d";
 /**
  * Landing-page entry point to /bookshelf.
  *
+ * The intro sentence is duplicated verbatim on /bookshelf. That's deliberate —
+ * it's the description of the shelf, and two reworded variants read as a
+ * mistake where one repeated line doesn't. Change both together.
+ *
  * The hairline box is the one framed container on the page. It's deliberately
  * not a card — no fill, no shadow, no hover lift — just a rule marking off a
  * self-contained thing that continues on another page.
