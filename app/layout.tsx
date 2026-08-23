@@ -23,10 +23,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Nikolas Thiessen',
   description: 'Product builder at Tesla. Writing Gist, building small AI tools, reading too much.',
+  // SVG first so modern browsers get the scalable mark; the PNGs are the
+  // fallback. There's deliberately no favicon.ico — the old one carried the
+  // previous design and .ico can't be generated from the SVG here, so a stale
+  // wrong-brand icon would be worse than none.
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
     apple: '/apple-touch-icon.png',
   },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({

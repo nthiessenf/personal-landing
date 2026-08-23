@@ -191,6 +191,27 @@ Also rejected: putting the name in the eyebrow treatment. At 26px uppercase
 accent it reads as a label for the page rather than a person, and it makes the
 name compete with the section labels for the same colour.
 
+## Icon
+
+`public/icon.svg` — an "NT" monogram: paper letters on an ink rounded square,
+Georgia (the closest ubiquitous serif to Newsreader; the favicon renders outside
+the page, so `next/font` isn't available to it).
+
+Ink ground rather than paper: a paper-coloured square would dissolve into a light
+browser tab, and the mark has to hold at 16px.
+
+PNGs are rasterised from that same SVG with `sips`, so the whole set stays in
+sync from one source:
+
+```
+sips -s format png -Z <size> public/icon.svg --out public/<name>.png
+```
+
+There is deliberately **no `favicon.ico`**. The old one carried the previous
+design, and `.ico` can't be generated from the SVG with the tools here — a stale
+wrong-brand icon is worse than none, and every current browser takes the SVG or
+PNG `<link>` instead.
+
 ## Motion
 
 Effectively none. The float, pulse-glow, shimmer, gradient-breathe keyframes and
