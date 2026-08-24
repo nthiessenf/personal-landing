@@ -215,9 +215,14 @@ PNG `<link>` instead.
 ## Link preview (Open Graph)
 
 `app/opengraph-image.tsx` renders a 1200×630 card at build time: clay ground, the
-NT monogram, the name in Newsreader, one line of description. Typographic rather
-than a photo — in a feed of stock photography a warm typeset card is what stands
-out, and it previews what someone actually gets when they click.
+name in Newsreader, one line beneath. Typographic rather than a photo — in a feed
+of stock photography a warm typeset card is what stands out, and it previews what
+someone actually gets when they click.
+
+**Nothing on the card or in the meta descriptions expires** — no employer, no
+current project. Link previews are cached hard by every scraper that reads them,
+so anything that goes stale is awkward to correct after the fact. Keep it that
+way when editing.
 
 Newsreader is read from `app/_fonts/Newsreader-Regular.ttf` rather than fetched
 at build time, so a network failure on the build host can't silently substitute a

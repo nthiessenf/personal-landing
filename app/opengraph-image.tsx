@@ -39,23 +39,6 @@ export default async function OpengraphImage() {
         {/* Centred, not corner-anchored: LinkedIn crops this to a different
             aspect in the card than in its editor, and anything parked at an
             edge gets cut. Everything sits in the middle ~70%. */}
-        <div
-          style={{
-            width: 96,
-            height: 96,
-            borderRadius: 20,
-            background: "#2b2521",
-            color: "#f0e7dc",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 44,
-            marginBottom: 40,
-          }}
-        >
-          NT
-        </div>
-
         <div style={{ fontSize: 88, color: "#2b2521", lineHeight: 1.1 }}>
           Nikolas Thiessen
         </div>
@@ -70,10 +53,9 @@ export default async function OpengraphImage() {
             textAlign: "center",
           }}
         >
-          {/* Kept short enough to set on two balanced lines — the longer version
-              left "for." orphaned on a third. */}
-          Product builder and engineer. Building product at Tesla, writing Gist,
-          reading too much.
+          {/* Deliberately says nothing that expires — no employer, no current
+              project — so the card survives a job change without a rebuild. */}
+          Product builder and engineer.
         </div>
       </div>
     ),
