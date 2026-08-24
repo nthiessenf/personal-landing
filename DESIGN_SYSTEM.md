@@ -212,6 +212,32 @@ design, and `.ico` can't be generated from the SVG with the tools here — a sta
 wrong-brand icon is worse than none, and every current browser takes the SVG or
 PNG `<link>` instead.
 
+## Link preview (Open Graph)
+
+`app/opengraph-image.tsx` renders a 1200×630 card at build time: clay ground, the
+NT monogram, the name in Newsreader, one line of description. Typographic rather
+than a photo — in a feed of stock photography a warm typeset card is what stands
+out, and it previews what someone actually gets when they click.
+
+Newsreader is read from `app/_fonts/Newsreader-Regular.ttf` rather than fetched
+at build time, so a network failure on the build host can't silently substitute a
+fallback face. The `.woff2` files `next/font` produces can't be used — satori
+needs ttf/otf/woff.
+
+`metadataBase` in `app/layout.tsx` is required: scrapers reject relative
+`og:image` URLs, and without it previews break with no visible error locally.
+
+**Composition is centred, not corner-anchored.** LinkedIn crops this to one
+aspect in a feed card and another in its editor; anything parked near an edge
+gets cut.
+
+Note LinkedIn's *Featured* section does **not** read `og:image` — that thumbnail
+is uploaded by hand. Export the card with:
+
+```
+curl -s -o thumb.png http://localhost:3000/opengraph-image
+```
+
 ## Motion
 
 Effectively none. The float, pulse-glow, shimmer, gradient-breathe keyframes and

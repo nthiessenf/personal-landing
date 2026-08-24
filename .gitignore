@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Scratch export of the OG image for manual upload
+/linkedin-thumbnail.png

@@ -21,8 +21,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  // metadataBase lets Next emit absolute og:image URLs — scrapers reject
+  // relative ones, so previews break silently without it.
+  metadataBase: new URL('https://www.niko-thiessen.com'),
   title: 'Nikolas Thiessen',
   description: 'Product builder at Tesla. Writing Gist, building small AI tools, reading too much.',
+  openGraph: {
+    title: 'Nikolas Thiessen',
+    description: 'Product builder and engineer. Building product at Tesla, writing Gist, reading too much.',
+    url: 'https://www.niko-thiessen.com',
+    siteName: 'Nikolas Thiessen',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nikolas Thiessen',
+    description: 'Product builder and engineer. Building product at Tesla, writing Gist, reading too much.',
+  },
   // SVG first so modern browsers get the scalable mark; the PNGs are the
   // fallback. There's deliberately no favicon.ico — the old one carried the
   // previous design and .ico can't be generated from the SVG here, so a stale
