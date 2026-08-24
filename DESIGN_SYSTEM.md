@@ -214,10 +214,23 @@ PNG `<link>` instead.
 
 ## Link preview (Open Graph)
 
-`app/opengraph-image.tsx` renders a 1200×630 card at build time: clay ground, the
-name in Newsreader, one line beneath. Typographic rather than a photo — in a feed
-of stock photography a warm typeset card is what stands out, and it previews what
-someone actually gets when they click.
+`app/opengraph-image.tsx` renders a 1200×630 card at build time: clay ground, an
+accent label, the name in Newsreader, and a row of book covers.
+
+A name-and-tagline card was tried first and read as **inert** — LinkedIn already
+shows the name and headline directly above it, so restating them spends the most
+prominent slot on nothing. The covers create the reason to click; the accent
+label stops the card reading as "a site about books".
+
+**Covers are local**, in `app/_og/`, read from disk rather than fetched. Same
+reasoning as the font: a cover CDN hiccup would otherwise fail the build or drop
+the images silently. They're a decorative snapshot, not live data — refresh them
+by hand when the shelf has moved on:
+
+```
+# URLs come from lib/books.ts — reading first, then most recently read
+curl -sL -o app/_og/cover-0.jpg "<cover url>"
+```
 
 **Nothing on the card or in the meta descriptions expires** — no employer, no
 current project. Link previews are cached hard by every scraper that reads them,
