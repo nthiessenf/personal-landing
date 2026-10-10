@@ -60,12 +60,10 @@ export function Newsletter() {
 
       <div className="min-w-0 flex-1">
         <h3 className="mb-2 text-[22px] text-ink">Nub</h3>
-        <p className="mb-2 text-ink-soft [text-wrap:balance]">
-          One topic in frontier tech and AI, explained, plus practical tips for
-          using AI at work and in life.
-        </p>
-        <p className="mb-3 text-[14px] leading-snug text-ink-faint [text-wrap:balance]">
-          Fully automated: researched and written by AI agents I built.
+        <p className="mb-3 text-ink-soft">
+          One topic in frontier tech and AI explained in simple terms, plus
+          practical tips for using AI at work and in life. Fully automated,
+          researched and written by AI agents I built.
         </p>
 
         {/* A step down from body copy: three full-size rows made this block
