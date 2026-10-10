@@ -49,10 +49,10 @@ export function Newsletter() {
     <div className="flex flex-col gap-6 sm:flex-row sm:gap-7">
       <div className="w-full flex-shrink-0 sm:w-[var(--media-w,240px)]">
         <Image
-          src="/images/gist-thumbnail.png"
+          src="/images/nub-thumbnail.png"
           alt="Nub newsletter cover"
-          width={480}
-          height={480}
+          width={1200}
+          height={670}
           sizes="(min-width: 640px) 200px, 100vw"
           className="aspect-[3/2] w-full rounded-md border border-rule object-cover"
         />
@@ -60,14 +60,11 @@ export function Newsletter() {
 
       <div className="min-w-0 flex-1">
         <h3 className="mb-2 text-[22px] text-ink">Nub</h3>
-        <p className="mb-2 text-ink-soft">
-          A newsletter for curious professionals outside tech, in two tracks:
-          Explained, which covers how new technology works, and AI in Practice,
-          which covers how people actually use it at work.
+        <p className="mb-1 text-ink-soft">
+          One idea in new tech or AI at work, explained plainly.
         </p>
-        <p className="mb-3 text-ink-soft">
-          Researched and drafted by a team of AI agents I built. I set the
-          direction, check the work, and approve every issue.
+        <p className="mb-3 text-[15px] text-ink-faint">
+          Written with AI agents I built. I edit every issue.
         </p>
 
         {/* A step down from body copy: three full-size rows made this block
