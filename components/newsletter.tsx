@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 /**
- * Gist, with recent issues listed rather than just a subscribe link — the site
+ * Nub (formerly Gist), with recent issues listed rather than just a subscribe link — the site
  * used to say "I have a newsletter" without showing any of it.
  *
  * Same shape as `Project`: cover on the left, everything else in the text column
- * on the right. That leaves noticeable empty space under the cover, because Gist
+ * on the right. That leaves noticeable empty space under the cover, because Nub
  * carries an issue list FrugalScan has no equivalent of. Three fixes were tried
  * and each cost more than the gap did — see DESIGN_SYSTEM.md.
  *
- * Hand-maintained: update when you want different issues featured. Gist runs on
+ * Hand-maintained: update when you want different issues featured. Nub runs on
  * beehiiv, which can expose an RSS feed (Settings → Publication → RSS); enable
  * it and this list could be fetched at build time instead.
  *
@@ -33,7 +33,7 @@ const RECENT_ISSUES: { title: string; href: string }[] = [
 ];
 
 const PLATFORMS: { label: string; href: string }[] = [
-  { label: "Subscribe", href: "https://www.gist-newsletter.com" },
+  { label: "Subscribe", href: "https://www.nubletter.com" },
   {
     label: "Spotify",
     href: "https://open.spotify.com/show/0r6kYx2AC8yYwwygyi0R2G?si=mIsLYI5OQIW1qoIs27gGpA",
@@ -44,13 +44,13 @@ const PLATFORMS: { label: string; href: string }[] = [
   },
 ];
 
-export function Writing() {
+export function Newsletter() {
   return (
     <div className="flex flex-col gap-6 sm:flex-row sm:gap-7">
       <div className="w-full flex-shrink-0 sm:w-[var(--media-w,240px)]">
         <Image
           src="/images/gist-thumbnail.png"
-          alt="Gist"
+          alt="Nub newsletter cover"
           width={480}
           height={480}
           sizes="(min-width: 640px) 200px, 100vw"
@@ -59,10 +59,15 @@ export function Writing() {
       </div>
 
       <div className="min-w-0 flex-1">
-        <h3 className="mb-2 text-[22px] text-ink">Gist</h3>
+        <h3 className="mb-2 text-[22px] text-ink">Nub</h3>
+        <p className="mb-2 text-ink-soft">
+          A newsletter for curious professionals outside tech, in two tracks:
+          Explained, which covers how new technology works, and AI in Practice,
+          which covers how people actually use it at work.
+        </p>
         <p className="mb-3 text-ink-soft">
-          One new trend or concept in frontier tech, explained clearly. No
-          jargon, no hype, so you&apos;re never the one nodding along.
+          Researched and drafted by a team of AI agents I built. I set the
+          direction, check the work, and approve every issue.
         </p>
 
         {/* A step down from body copy: three full-size rows made this block

@@ -33,8 +33,8 @@ export function Intro() {
 
       <p className="text-ink">
         Product builder and engineer. Lived in Peru, Mexico, and the US. Now in
-        the Bay Area, building product at Tesla and tinkering with AI apps after
-        hours.
+        the Bay Area, building product at Tesla. After hours I build AI apps and run a
+        newsletter produced by AI agents I built.
       </p>
     </section>
   );

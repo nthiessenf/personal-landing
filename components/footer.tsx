@@ -6,7 +6,7 @@
  * TODO: bump `LAST_UPDATED` when you change the page. It's the only thing
  * telling a visitor whether any of this is still true.
  */
-const LAST_UPDATED = "August 2026";
+const LAST_UPDATED = "October 2026";
 
 export function Footer() {
   return (
