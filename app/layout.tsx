@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   title: 'Nikolas Thiessen',
   // Nothing employer-specific here either — this string shows up in search
   // results and link previews, and both are awkward to correct after the fact.
-  description: 'Product builder and engineer. Projects, writing, and what I\'m reading.',
+  description: 'Product builder and engineer. Projects, an AI-built newsletter I run, and what I\'m reading.',
   openGraph: {
     title: 'Nikolas Thiessen',
-    description: 'Product builder and engineer. Projects, writing, and what I\'m reading.',
+    description: 'Product builder and engineer. Projects, an AI-built newsletter I run, and what I\'m reading.',
     url: 'https://www.niko-thiessen.com',
     siteName: 'Nikolas Thiessen',
     type: 'website',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Nikolas Thiessen',
-    description: 'Product builder and engineer. Projects, writing, and what I\'m reading.',
+    description: 'Product builder and engineer. Projects, an AI-built newsletter I run, and what I\'m reading.',
   },
   // SVG first so modern browsers get the scalable mark; the PNGs are the
   // fallback. There's deliberately no favicon.ico — the old one carried the

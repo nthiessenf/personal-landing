@@ -9,7 +9,7 @@ import { ReactNode } from "react";
  * mistaken for content, so the sections are findable without being read.
  *
  * That gives the page a two-tier system worth preserving: **sans marks
- * structure, serif marks content.** Item titles (FrugalScan, Gist) stay serif.
+ * structure, serif marks content.** Item titles (FrugalScan, Nub) stay serif.
  * Don't grow this past 13px — at 15px it starts competing with those 22px serif
  * titles and the two tiers blur back together.
  *

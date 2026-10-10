@@ -63,7 +63,7 @@ export default async function OpengraphImage() {
             marginBottom: 26,
           }}
         >
-          Projects · Writing · Books
+          Projects · Newsletter · Books
         </div>
 
         <div style={{ fontSize: 84, color: "#2b2521", lineHeight: 1.1 }}>

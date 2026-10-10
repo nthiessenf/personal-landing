@@ -3,7 +3,7 @@ import { Intro } from "@/components/intro";
 import { Section } from "@/components/section";
 import { LinkList, type AnnotatedLink } from "@/components/link-list";
 import { Project } from "@/components/project";
-import { Writing } from "@/components/writing";
+import { Newsletter } from "@/components/newsletter";
 import { ReadingTeaser } from "@/components/reading-teaser";
 import { Footer } from "@/components/footer";
 
@@ -15,9 +15,6 @@ import { Footer } from "@/components/footer";
  * That rule is why there's no `Currently` section — it duplicated both the intro
  * and the sections beneath it — and why hobbies sit in `Other hobbies` rather
  * than in the intro paragraph.
- *
- * NOTE: the notes below are drafts. Rewrite them in your voice — especially the
- * `Off the clock` ones, which name a specific competition and trip.
  */
 const OFF_THE_CLOCK: AnnotatedLink[] = [
   { label: "Jiu jitsu", note: "applying kaizen on the mats" },
@@ -78,7 +75,7 @@ export default function Home() {
                 { label: "GitHub", url: "https://github.com/nthiessenf" },
               ]}
             />
-            <Writing />
+            <Newsletter />
           </div>
         </Section>
 

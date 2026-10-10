@@ -20,7 +20,7 @@ interface ProjectProps {
   title: string;
   description: string;
   /** Rendered in a row inside a fixed-width media column, so the text measure
-   *  stays identical across every project and the Writing block. */
+   *  stays identical across every project and the Newsletter block. */
   images: ProjectImage[];
   /** Media above the text rather than beside it. Unused on the current page,
    *  which runs text-beside-image. Set page-wide if ever used, never per item —

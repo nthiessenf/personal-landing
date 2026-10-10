@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 /**
- * Gist, with recent issues listed rather than just a subscribe link — the site
+ * Nub (formerly Gist), with recent issues listed rather than just a subscribe link — the site
  * used to say "I have a newsletter" without showing any of it.
  *
  * Same shape as `Project`: cover on the left, everything else in the text column
- * on the right. That leaves noticeable empty space under the cover, because Gist
+ * on the right. That leaves noticeable empty space under the cover, because Nub
  * carries an issue list FrugalScan has no equivalent of. Three fixes were tried
  * and each cost more than the gap did — see DESIGN_SYSTEM.md.
  *
- * Hand-maintained: update when you want different issues featured. Gist runs on
+ * Hand-maintained: update when you want different issues featured. Nub runs on
  * beehiiv, which can expose an RSS feed (Settings → Publication → RSS); enable
  * it and this list could be fetched at build time instead.
  *
@@ -32,8 +32,10 @@ const RECENT_ISSUES: { title: string; href: string }[] = [
   },
 ];
 
+const MORE_ISSUES = "https://www.nubletter.com";
+
 const PLATFORMS: { label: string; href: string }[] = [
-  { label: "Subscribe", href: "https://www.gist-newsletter.com" },
+  { label: "Subscribe", href: "https://www.nubletter.com" },
   {
     label: "Spotify",
     href: "https://open.spotify.com/show/0r6kYx2AC8yYwwygyi0R2G?si=mIsLYI5OQIW1qoIs27gGpA",
@@ -44,52 +46,66 @@ const PLATFORMS: { label: string; href: string }[] = [
   },
 ];
 
-export function Writing() {
+export function Newsletter() {
   return (
     <div className="flex flex-col gap-6 sm:flex-row sm:gap-7">
       <div className="w-full flex-shrink-0 sm:w-[var(--media-w,240px)]">
         <Image
-          src="/images/gist-thumbnail.png"
-          alt="Gist"
-          width={480}
-          height={480}
+          src="/images/nub-thumbnail.png"
+          alt="Nub newsletter cover"
+          width={1200}
+          height={670}
           sizes="(min-width: 640px) 200px, 100vw"
           className="aspect-[3/2] w-full rounded-md border border-rule object-cover"
         />
       </div>
 
       <div className="min-w-0 flex-1">
-        <h3 className="mb-2 text-[22px] text-ink">Gist</h3>
-        <p className="mb-3 text-ink-soft">
-          One new trend or concept in frontier tech, explained clearly. No
-          jargon, no hype, so you&apos;re never the one nodding along.
+        <h3 className="mb-2 text-[22px] text-ink">Nub</h3>
+        <p className="mb-3 overflow-hidden text-ink-soft [-webkit-box-orient:vertical] [-webkit-line-clamp:3] [display:-webkit-box]">
+          One AI topic explained in simple terms, plus practical AI tips for
+          work and life. Written by AI agents I built.
         </p>
 
-        {/* A step down from body copy: three full-size rows made this block
-            noticeably taller than the FrugalScan one. */}
-        <ul className="mb-3 grid gap-1 text-[16px] leading-snug">
-          {RECENT_ISSUES.map((issue, i) => (
-            <li key={i} className="flex">
+        {/* Two examples max, one line each: long titles truncate rather
+            than wrap, so the block stays the same height at every width. */}
+        <ul className="mb-2 grid gap-1 text-[16px] leading-snug">
+          {RECENT_ISSUES.slice(0, 2).map((issue, i) => (
+            <li key={i} className="flex min-w-0">
               <span aria-hidden className="mr-2.5 flex-shrink-0 text-ink-faint">
                 &#9702;
               </span>
-              <a href={issue.href} target="_blank" rel="noopener noreferrer">
+              <a
+                href={issue.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={issue.title}
+                className="min-w-0 truncate"
+              >
                 {issue.title}
               </a>
             </li>
           ))}
         </ul>
-
-        <p className="font-sans text-[13px]">
-          {PLATFORMS.map((p, i) => (
-            <span key={p.label}>
-              {i > 0 && <span className="mx-2.5 text-ink-faint">&middot;</span>}
-              <a href={p.href} target="_blank" rel="noopener noreferrer">
-                {p.label}
-              </a>
-            </span>
-          ))}
+        <p className="mb-4 font-sans text-[13px]">
+          <a href={MORE_ISSUES} target="_blank" rel="noopener noreferrer">
+            More issues &rarr;
+          </a>
         </p>
+
+        <div className="flex flex-wrap gap-2 font-sans text-[13px]">
+          {PLATFORMS.map((p) => (
+            <a
+              key={p.label}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-rule px-3 py-1.5 leading-none text-ink no-underline transition-colors hover:border-ink-faint"
+            >
+              {p.label}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
