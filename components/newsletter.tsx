@@ -63,8 +63,8 @@ export function Newsletter() {
       <div className="min-w-0 flex-1">
         <h3 className="mb-2 text-[22px] text-ink">Nub</h3>
         <p className="mb-3 overflow-hidden text-ink-soft [-webkit-box-orient:vertical] [-webkit-line-clamp:3] [display:-webkit-box]">
-          One AI topic explained in simple terms, plus practical AI tips for
-          work and life. Written by AI agents I built.
+          One AI topic explained, plus practical AI tips for work and life.
+          Researched and written end to end by AI agents I built.
         </p>
 
         {/* Two examples max, one line each: long titles truncate rather
