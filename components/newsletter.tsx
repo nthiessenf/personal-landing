@@ -20,15 +20,15 @@ import Image from "next/image";
 const RECENT_ISSUES: { title: string; href: string }[] = [
   {
     title: "How ChatGPT Actually Works (No PhD Required)",
-    href: "https://www.gist-newsletter.com/p/how-chatgpt-actually-works-no-phd-required",
+    href: "https://www.nubletter.com/p/how-chatgpt-actually-works-no-phd-required",
   },
   {
     title: "The Thinking Partner: How Executives Use AI",
-    href: "https://www.gist-newsletter.com/p/the-thinking-partner",
+    href: "https://www.nubletter.com/p/the-thinking-partner",
   },
   {
     title: "AI Agents: Software That Works for You",
-    href: "https://www.gist-newsletter.com/p/ai-agents",
+    href: "https://www.nubletter.com/p/ai-agents",
   },
 ];
 
@@ -63,8 +63,8 @@ export function Newsletter() {
       <div className="min-w-0 flex-1">
         <h3 className="mb-2 text-[22px] text-ink">Nub</h3>
         <p className="mb-3 overflow-hidden text-ink-soft [-webkit-box-orient:vertical] [-webkit-line-clamp:3] [display:-webkit-box]">
-          One AI topic explained in simple terms, plus practical AI tips for
-          work and life. Written by AI agents I built.
+          One AI topic explained, plus practical AI tips for work and life.
+          Researched and written end to end by AI agents I built.
         </p>
 
         {/* Two examples max, one line each: long titles truncate rather
