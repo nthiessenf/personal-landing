@@ -20,15 +20,15 @@ import Image from "next/image";
 const RECENT_ISSUES: { title: string; href: string }[] = [
   {
     title: "How ChatGPT Actually Works (No PhD Required)",
-    href: "https://www.gist-newsletter.com/p/how-chatgpt-actually-works-no-phd-required",
+    href: "https://www.nubletter.com/p/how-chatgpt-actually-works-no-phd-required",
   },
   {
     title: "The Thinking Partner: How Executives Use AI",
-    href: "https://www.gist-newsletter.com/p/the-thinking-partner",
+    href: "https://www.nubletter.com/p/the-thinking-partner",
   },
   {
     title: "AI Agents: Software That Works for You",
-    href: "https://www.gist-newsletter.com/p/ai-agents",
+    href: "https://www.nubletter.com/p/ai-agents",
   },
 ];
 
